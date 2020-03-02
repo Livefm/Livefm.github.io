@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Livefm_blog</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/IEEE802.3以太网帧封/">
+								<i class="fa fa-file"></i>
+								IEEE802.3以太网帧封
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/图的操作和应用之景区信息管理系统/">
+								<i class="fa fa-file"></i>
+								图的操作和应用之景区信息管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file active">
+							<a href="/2020/03/02/基于pyhon图形化编程之仓库管理系统/">
+								<i class="fa fa-file"></i>
+								基于pyhon图形化编程之仓库管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于古典密码新密码算法的设计/">
+								<i class="fa fa-file"></i>
+								基于古典密码新密码算法的设计
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/模拟登录教务处爬取相关信息/">
+								<i class="fa fa-file"></i>
+								模拟登录教务处爬取相关信息
+							</a>
+						</li>
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+    <li class="menu-item">
+        <a href="https://github.com/Livefm" class="menu-item-link" target="_blank">github</a>
+    </li>
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">Livefm</span>
+	<span id="post-date">2020-03-02 15:05:25</span>
+</div>
+
+<div id="article">
+	<h1 id="基于python图形化编程之仓库管理系统"><a href="#基于python图形化编程之仓库管理系统" class="headerlink" title="基于python图形化编程之仓库管理系统"></a>基于python图形化编程之仓库管理系统</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​    2019年的某一天，室友突然跟我说，要不要跟他一起为他伯伯的公司做一个仓库管理系统，首先这是他伯伯为了锻炼他的动手能力，所以就没有把这个项目给了他，他也因此拉上了我。我想了下，因为之前学知识很大程度上都是停留在理论层面上，很少实际去动手，所以毫不犹豫就答应了。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>​    说到需求，我现在想起来都觉得有意思。当时他伯伯都只是口头将需求给他讲了一下，哪怕一个需求文档都没有。哈哈哈，估计他伯伯当时也没有对我们抱太大希望。但是我们还是说干就干。经过对简短得口头需求得分析，我大致抽离出了一些功能模块。</p>
+<h2 id="ui设计"><a href="#ui设计" class="headerlink" title="ui设计"></a>ui设计</h2><p>​    讲到ui设计，其中的梗更多了。当时ui设计我竟然是自己拿笔在纸上画出来，画的时候除了矩形就还是矩形，可真是为难我这个毫无绘画功底的理工男了。。</p>
+<h2 id="动手实现"><a href="#动手实现" class="headerlink" title="动手实现"></a>动手实现</h2><p>​    草图画完之后，便是实现。由于我当时连qtdesigner都不知道，我竟然开始手撸ui代码，我现在想起来都佩服当时的自己，1000多行ui代码纯手撸。真尼玛sha 哈哈哈哈</p>
+<h2 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h2><p>前方高能</p>
+<pre><code class="python">import sys
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+storehouse1 = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+for i in range(17):
+    for j in range(120):
+        storehouse1[i].append(j)
+        storehouse1[i][j] = 0#初始化 0为空货架，1为该货架有货
+goods_types = [&quot;产成品&quot;,&quot;原材料&quot;,&quot;包装物&quot;]#货物类型
+units = []#计量单位
+warehouse = [&quot;诺泰仓库&quot;]
+storehouse = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+
+def read_units():#读取单位
+    with open(&quot;units.nt&quot;,&#39;r&#39;)as fr:
+        for each_line in fr:
+            l = each_line.split()
+            for i in range(len(l)):
+                units.append(l[i])
+def judge_shelves():#判断空货架
+    storehouse_temp = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+    with open(&quot;Goods.nt&quot;,&quot;r&quot;) as f:
+        for each_line in f:
+            index = []
+            index = each_line.split()
+            store_name = storehouse_temp.index(index[4])
+            shelf_name = int(index[5])
+            storehouse1[store_name][shelf_name-1] = 1
+
+
+
+class logindialog(QDialog):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.setWindowTitle(&#39;登录界面&#39;)
+        self.resize(200, 150)
+        self.setFixedSize(self.width(), self.height())
+        self.setWindowFlags(Qt.WindowCloseButtonHint)
+
+        window_pale = QPalette()
+        window_pale.setBrush(self.backgroundRole(),   QBrush(QPixmap(&quot;login.png&quot;))) 
+        self.setPalette(window_pale)
+
+        ###### 设置界面控件
+        self.frame = QFrame(self)
+        self.verticalLayout = QVBoxLayout(self.frame)
+
+        self.lineEdit_account = QLineEdit()
+        self.lineEdit_account.setPlaceholderText(&quot;请输入账号&quot;)
+        self.verticalLayout.addWidget(self.lineEdit_account)
+
+        self.lineEdit_password = QLineEdit()
+        self.lineEdit_password.setPlaceholderText(&quot;请输入密码&quot;)
+        self.verticalLayout.addWidget(self.lineEdit_password)
+
+        self.pushButton_enter = QPushButton()
+        self.pushButton_enter.setText(&quot;确定&quot;)
+        self.verticalLayout.addWidget(self.pushButton_enter)
+
+        self.pushButton_quit = QPushButton()
+        self.pushButton_quit.setText(&quot;取消&quot;)
+        self.verticalLayout.addWidget(self.pushButton_quit)
+
+        ###### 绑定按钮事件
+        self.pushButton_enter.clicked.connect(self.on_pushButton_enter_clicked)
+        self.pushButton_quit.clicked.connect(QCoreApplication.instance().quit)
+
+
+
+
+
+    def on_pushButton_enter_clicked(self):
+        if self.lineEdit_account.text()==&#39;&#39; or self.lineEdit_password.text()==&#39;&#39;:
+             reply = QMessageBox.warning(self,&quot;警告&quot;,&quot;账户或密码为空，请重新输入！&quot;)
+
+        # 账号判断
+        elif not(self.lineEdit_account.text() == &quot;bool&quot;):
+             reply = QMessageBox.warning(self,&quot;警告&quot;,&quot;账户错误，请重新输入！&quot;)
+
+
+        # 密码判断
+        elif not(self.lineEdit_password.text() == &quot;123&quot;):
+             reply = QMessageBox.warning(self,&quot;警告&quot;,&quot;密码错误，请重新输入！&quot;)
+
+
+        # 通过验证，关闭对话框并返回1
+        else:
+            self.accept() 
+class Mainwindow(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        window_pale = QPalette()
+        window_pale.setBrush(self.backgroundRole(),   QBrush(QPixmap(&quot;main.png&quot;))) 
+        self.setPalette(window_pale)
+        label1 = QLabel(self)
+        label1.setText(&quot;仓库作业&quot;)
+        label1.setAutoFillBackground(True)
+        palette1 = QPalette()
+        palette1.setColor(QPalette.WindowText,Qt.red)
+        palette1.setColor(QPalette.Window,Qt.white)
+        label1.setPalette(palette1)
+        label1.setFont(QFont(&quot;Roman times&quot;,14,QFont.Bold))
+        #label1.setAlignment(Qt.AlignTop)
+        label1.setMinimumSize(label1.width(),label1.height())
+        label1.setMaximumSize(label1.width(),label1.height())
+        label1.setScaledContents(True)
+        grid.addWidget(label1,0,0)
+
+        label2 = QLabel(self)
+        label2.setText(&quot;基本设置&quot;)
+        label2.setAutoFillBackground(True)
+        palette2 = QPalette()
+        palette2.setColor(QPalette.WindowText,Qt.red)
+        palette2.setColor(QPalette.Window,Qt.white)
+        label2.setPalette(palette2)
+        label2.setFont(QFont(&quot;Roman times&quot;,14,QFont.Bold))
+        #label2.setAlignment(Qt.AlignTop)
+        label2.setMinimumSize(label2.width(),label2.height())
+        label2.setMaximumSize(label1.width(),label2.height())
+        label2.setScaledContents(True)
+        grid.addWidget(label2,0,1)
+
+        names = [&quot;货物上架&quot;,&quot;仓库设置&quot;,
+                 &quot;货物下架&quot;,&quot;库位设置&quot;,
+                 &quot;货物调度&quot;,&quot;货架设置&quot;,
+                 &quot;货物查询&quot;,&quot;货物类型&quot;,
+                 &quot;查询空架&quot;,&quot;计量单位&quot;,
+                 &quot;关于作者&quot;,&quot;联系方式&quot;]
+        positions = [(i,j)for i in range(1,7) for j in range(2)]#创建一个网格的定位列表
+        for position,name in zip(positions,names):
+            button = QPushButton(name)
+            button.clicked.connect(self.buttonClicked)
+            grid.addWidget(button,*position)#创建出按钮组件，并使用addWidget()方法向布局中添加按钮
+
+        &#39;&#39;&#39;button_about = QPushButton(&quot;关于&quot;)
+        button.clicked.connect(self.button_about1)
+        grid.addWidget(button_about,5,0)
+        button_about = QPushButton(&quot;联系&quot;)
+        button.clicked.connect(self.button_about2)
+        grid.addWidget(button_about,5,1)&#39;&#39;&#39;
+        self.resize(500,500)
+        self.center()
+        self.setWindowTitle(&#39;诺泰仓库管理系统&#39;)   
+        self.show()
+
+
+    &#39;&#39;&#39;&#39;def button_about1(self):
+        dialog = Qdialog()
+        dialog.setWindowTitle(&quot;关于&quot;)
+        label = QLabel(dialog)
+        label.setText(&quot;作者：胡江波&quot;)
+        dialog.show()
+
+
+    def button_about2(self):
+        dialog = Qdialog()
+        dialog.setWindowTitle(&quot;联系方式&quot;)
+        label = QLabel(dialog)
+        label.setText(&quot;QQ：386362062&quot;)
+        dialog.show()&#39;&#39;&#39;
+
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, &#39;提示&#39;,
+            &quot;您确定要退出系统吗&quot;, QMessageBox.Yes |
+            QMessageBox.No, QMessageBox.No)
+
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+    def buttonClicked(self):
+        sender = self.sender()
+        if sender.text()==&quot;货物上架&quot;:
+            upper.handle_click()
+        elif sender.text()==&quot;货物下架&quot;:
+            lower.handle_click()
+        elif sender.text()==&quot;货物调度&quot;:
+            move.handle_click()
+        elif sender.text()==&quot;货物查询&quot;:
+            query_goods.handle_click()
+        elif sender.text()==&quot;查询空架&quot;:
+            query_empty_shelves.handle_click()
+        elif sender.text()==&quot;仓库设置&quot;:
+            warehouse.handle_click()
+        elif sender.text()==&quot;库位设置&quot;:
+            storehouse.handle_click()
+        elif sender.text()==&quot;货架设置&quot;:
+            shelves.handle_click()
+        elif sender.text()==&quot;货物类型&quot;:
+            goods_types.handle_click()
+        elif sender.text()==&quot;计量单位&quot;:
+            unit.handle_click()
+        elif sender.text()==&quot;关于作者&quot;:
+            writer.handle_click()
+        elif sender.text()==&quot;联系方式&quot;:
+            contact.handle_click()
+
+class Writer(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        self.dialog = QDialog()
+        self.dialog.setWindowTitle(&quot;关于&quot;)
+        self.label = QLabel(self.dialog)
+        self.label.setText(&quot;作者：胡江波&quot;)
+        self.dialog.resize(100,100)
+    def handle_click(self):
+        self.dialog.show()
+
+class Contact(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        self.dialog = QDialog()
+        self.dialog.setWindowTitle(&quot;联系方式&quot;)
+        self.label = QLabel(self.dialog)
+        self.label.setText(&quot;QQ:386362062&quot;)
+        self.dialog.resize(100,100)
+    def handle_click(self):
+        self.dialog.show()
+
+
+class Upper_shelf(QMainWindow):#上架
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        self.widget = QWidget()
+        self.setCentralWidget(self.widget)
+        self.widget.grid = QGridLayout()
+        self.widget.setLayout(self.widget.grid)
+        self.widget.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;货物上架&#39;)
+        self.widget.label1 = QLabel(self)
+        self.widget.label1.setText(&quot;产品名称：&quot;)
+        self.widget.label1.setAutoFillBackground(True)
+        self.widget.palette1 = QPalette()
+        self.widget.palette1.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette1.setColor(QPalette.Window,Qt.white)
+        self.widget.label1.setPalette(self.widget.palette1)
+        self.widget.label1.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label1,0,0)
+
+        self.widget.label2 = QLabel(self)
+        self.widget.label2.setText(&quot;货物类型：&quot;)
+        self.widget.label2.setAutoFillBackground(True)
+        self.widget.palette2 = QPalette()
+        self.widget.palette2.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette2.setColor(QPalette.Window,Qt.white)
+        self.widget.label2.setPalette(self.widget.palette2)
+        self.widget.label2.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label2,1,0)
+
+        self.widget.label3 = QLabel(self)
+        self.widget.label3.setText(&quot;所在仓库：&quot;)
+        self.widget.label3.setAutoFillBackground(True)
+        self.widget.palette3 = QPalette()
+        self.widget.palette3.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette3.setColor(QPalette.Window,Qt.white)
+        self.widget.label3.setPalette(self.widget.palette3)
+        self.widget.label3.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label3,2,0)
+
+        self.widget.label4 = QLabel(self)
+        self.widget.label4.setText(&quot;所在库位：&quot;)
+        self.widget.label4.setAutoFillBackground(True)
+        self.widget.palette4 = QPalette()
+        self.widget.palette4.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette4.setColor(QPalette.Window,Qt.white)
+        self.widget.label4.setPalette(self.widget.palette4)
+        self.widget.label4.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label4,3,0)
+
+        self.widget.label5 = QLabel(self)
+        self.widget.label5.setText(&quot;所在货架：&quot;)
+        self.widget.label5.setAutoFillBackground(True)
+        self.widget.palette5 = QPalette()
+        self.widget.palette5.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette5.setColor(QPalette.Window,Qt.white)
+        self.widget.label5.setPalette(self.widget.palette5)
+        self.widget.label5.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label5,4,0)
+
+        self.widget.label6 = QLabel(self)
+        self.widget.label6.setText(&quot;上架质量：&quot;)
+        self.widget.label6.setAutoFillBackground(True)
+        self.widget.palette6 = QPalette()
+        self.widget.palette6.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette6.setColor(QPalette.Window,Qt.white)
+        self.widget.label6.setPalette(self.widget.palette6)
+        self.widget.label6.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label6,5,0)
+
+        self.widget.label7 = QLabel(self)
+        self.widget.label7.setText(&quot;计量单位：&quot;)
+        self.widget.label7.setAutoFillBackground(True)
+        self.widget.palette7 = QPalette()
+        self.widget.palette7.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette7.setColor(QPalette.Window,Qt.white)
+        self.widget.label7.setPalette(self.widget.palette7)
+        self.widget.label7.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label7,6,0)
+
+        self.widget.qle1 = QLineEdit(self)#产品名称输入框
+        self.widget.qle1.setClearButtonEnabled(True)
+        self.widget.qle1.setObjectName(&quot;prod_name&quot;)
+        self.widget.qle2 = QLineEdit(self)#上架质量
+        self.widget.qle2.setClearButtonEnabled(True)
+        self.widget.qle2.setObjectName(&quot;quality&quot;)
+        self.widget.grid.addWidget(self.widget.qle1,0,1)
+        self.widget.grid.addWidget(self.widget.qle2,5,1)
+
+        self.widget.button_sure = QPushButton(&quot;确认上架&quot;)
+        self.widget.grid.addWidget(self.widget.button_sure,7,1)
+        self.widget.button_sure.clicked.connect(self.sure_up)
+
+
+        self.widget.combo1 = QComboBox(self)#货物类型选项
+        for i in range(len(goods_types)):
+            self.widget.combo1.addItem(goods_types[i])
+        self.widget.grid.addWidget(self.widget.combo1,1,1)
+
+        self.widget.combo2 = QComboBox(self)#所在仓库选项
+        self.widget.combo2.addItem(&quot;诺泰仓库&quot;)
+        self.widget.grid.addWidget(self.widget.combo2,2,1)
+
+        self.widget.combo3 = QComboBox(self)#所在库位选项
+        store = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]
+        for i in range(len(store)):
+            self.widget.combo3.addItem(store[i])
+        self.widget.grid.addWidget(self.widget.combo3,3,1)
+
+        self.widget.combo4 = QComboBox(self)#所在货架选项
+        for i in range(120):
+            str1 = str(i+1)
+            self.widget.combo4.addItem(str1)
+        self.widget.grid.addWidget(self.widget.combo4,4,1)
+
+        self.widget.combo5 = QComboBox(self)#计量单位选项
+        for i in range(len(units)):
+            self.widget.combo5.addItem(units[i])
+        self.widget.grid.addWidget(self.widget.combo5,6,1)
+
+        self.statu = &#39;录入已准备就绪！&#39;#状态栏
+        self.statusBar().showMessage(self.statu)
+
+
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+    def sure_up(self):
+        judge_shelves()
+        storehouse_temp = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+        text1 = self.widget.qle1.text()#产品名称
+        text2 = self.widget.qle2.text()#质量
+        text3 = self.widget.combo1.currentText()#货物类型
+        text4 = self.widget.combo2.currentText()#所在仓库
+        text5 = self.widget.combo3.currentText()#库位
+        text6 = self.widget.combo4.currentText()#货架
+        text7 = self.widget.combo5.currentText()#单位
+        with open(&quot;Goods.nt&quot;,&#39;r&#39;) as fr:
+            lines = fr.readlines()
+            last_line = lines[-1]
+            index = []
+            index = last_line.split()
+        with open(&quot;Goods.nt&quot;,&#39;a&#39;) as fw:
+            num1 = storehouse_temp.index(text5)
+            num2 = int(text6)
+
+            if not(text2.isdigit()):
+                self.statu = &quot;质量输入违法！重新输入&quot;
+                self.statusBar().showMessage(self.statu)
+            elif storehouse1[num1][num2-1] == 1:
+                self.statu = &quot;此货架已有货物！重新输入&quot;
+                self.statusBar().showMessage(self.statu)
+            else:
+                index_1 = int(index[0])+1
+                #print(index_1)
+                fw.write(&#39;\n&#39;+str(index_1)+&#39; &#39;+text1+&#39; &#39;+text3+&#39; &#39;+text4+&#39; &#39;+text5+&#39; &#39;+text6+&#39; &#39;+text2+&#39; &#39;+text7)
+                self.statu = &quot;录入成功！&quot;
+                self.statusBar().showMessage(self.statu)
+        judge_shelves()
+
+
+
+class Lower_shelf(QDialog):#下架
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        self.storehouse_temp = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+        self.dialog = QDialog()
+        self.dialog.resize(400,70)
+        self.dialog.setWindowTitle(&#39;货物下架&#39;)
+        self.dialog.grid = QGridLayout()
+        self.dialog.setLayout(self.dialog.grid)
+
+        self.dialog.qle1 = QLineEdit(self.dialog)#产品名称输入框
+        self.dialog.qle1.setClearButtonEnabled(True)
+        self.dialog.qle1.setPlaceholderText(&quot;请输入所要下架的货架，如B12&quot;)
+        self.dialog.grid.addWidget(self.dialog.qle1,0,0)
+
+        self.dialog.button1 = QPushButton(self.dialog)
+        self.dialog.button1.setText(&quot;下架&quot;)
+        self.dialog.grid.addWidget(self.dialog.button1,0,1)
+        self.dialog.button1.clicked.connect(self.handle_button)
+
+    def handle_button(self):
+        judge_shelves()
+        haved_store = []#非空货架
+        text = self.dialog.qle1.text()
+        flag = 0
+        with open(&quot;Goods.nt&quot;,&quot;r&quot;) as fr:
+            lines = fr.readlines()
+            for each_line in lines:
+                index = []
+                index = each_line.split()
+                order_number = index[0]#编号
+                store_name = (index[4]+index[5])#货架名称如B13
+                if text == store_name:
+                    with open(&quot;Goods.nt&quot;,&quot;w&quot;) as fw:
+                        i = 0
+                        for line in lines:
+                            #print(type(line.split()[0]))
+                            if i&lt;int(order_number):
+                                fw.write(line)
+                            elif int(order_number) == int(line.split()[0]):
+                                pass
+                            else:
+                                l = &#39;&#39;
+                                l += order_number
+                                for j in range(1,8):
+                                    l += &#39; &#39;
+                                    l+= line.split()[j]
+                                l += &#39;\n&#39;
+                                fw.write(l)
+                                a = int(order_number)
+                                a += 1
+                                order_number = str(a)
+                            i+=1
+                    self.msg1(&quot;下架成功！&quot;)
+                    flag = 1
+        if flag == 0:
+            self.msg1(&quot;下架失败！&quot;)
+        judge_shelves()
+
+
+
+    def msg1(self,text):
+        reply = QMessageBox.information(self.dialog,&quot;下架提示&quot;,text)
+
+    def handle_click(self):
+        self.dialog.show()
+
+
+
+class Move(QDialog):#调度
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        self.storehouse_temp = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+        self.dialog = QDialog()
+        self.dialog.resize(600,70)
+        self.dialog.setWindowTitle(&#39;货物调度&#39;)
+        self.dialog.grid = QGridLayout()
+        self.dialog.setLayout(self.dialog.grid)
+
+        self.dialog.qle1 = QLineEdit(self.dialog)#产品名称输入框
+        self.dialog.qle1.setClearButtonEnabled(True)
+        self.dialog.qle1.setPlaceholderText(&quot;请输入原来货架，如B12&quot;)
+        self.dialog.grid.addWidget(self.dialog.qle1,0,0)
+
+        self.dialog.button1 = QPushButton(self.dialog)
+        self.dialog.button1.setText(&quot;调度到&quot;)
+        self.dialog.grid.addWidget(self.dialog.button1,0,1)
+        self.dialog.button1.clicked.connect(self.handle_button)
+
+        self.dialog.qle2 = QLineEdit(self.dialog)#产品名称输入框
+        self.dialog.qle2.setClearButtonEnabled(True)
+        self.dialog.qle2.setPlaceholderText(&quot;请输入目标货架，如A22&quot;)
+        self.dialog.grid.addWidget(self.dialog.qle2,0,3)
+
+    def handle_button(self):
+        judge_shelves()
+        text1 = self.dialog.qle1.text()#原货架
+        text2 = self.dialog.qle2.text()#终货架
+        count = 0
+        num1 = self.storehouse_temp.index(text2[0])
+        num2 = int(text2[1])
+        flag = 0
+        if not(storehouse1[num1][num2-1]):
+            with open(&quot;Goods.nt&quot;,&quot;r&quot;) as fr:
+                lines = fr.readlines()
+                lines1 = lines
+                for each_line in lines:                
+                    index = []
+                    index = each_line.split()
+                    order_number = index[0]#编号
+                    store_name = (index[4]+index[5])#货架名称如B13
+                    count +=1
+                    if text1 == store_name:
+                        with open(&quot;Goods.nt&quot;,&quot;w&quot;) as fw:                       
+                            l = index[0] + &#39; &#39; + index[1]+&#39; &#39;+index[2]+&#39; &#39;+index[3]+&#39; &#39;+text2[0]+&#39; &#39;+text2[1]+&#39; &#39;+index[6]+&#39; &#39;+index[7]+&#39;\n&#39;
+                            lines[count-1] = l                        
+                            fw.writelines(lines)
+            self.msg1(&quot;调度成功！&quot;)
+            flag = 1
+        if flag == 0:
+            self.msg1(&quot;调度失败！&quot;)
+        judge_shelves()            
+
+    def handle_click(self):
+        self.dialog.show()
+
+    def msg1(self,text):
+        reply = QMessageBox.information(self.dialog,&quot;下架提示&quot;,text)
+
+
+
+class Query_Goods(QWidget):#查询货物
+    def __init__(self):
+        super().__init__()
+        self.pro_number = &#39;0&#39;
+        self.initUI()
+    def initUI(self):
+        self.setGeometry(300,300,900,420)
+        self.setWindowTitle(&#39;查询货物&#39;)
+        #self.resize()
+        judge_shelves()
+        self.listWidget = QListWidget(self)
+        self.listWidget.resize(600,400)
+        self.listWidget.move(15,10)
+        self.listWidget.addItem(&#39;编号 货物名称          类型        所属仓库         库位   货架   已有质量  计量单位&#39;)
+        self.count = 0
+        with open(&quot;Goods.nt&quot;,&quot;r&quot;)as fr:
+            for each_line in fr:
+                l = each_line.split()
+                self.listWidget.addItem(l[0]+&#39;        &#39;+l[1]+&#39;              &#39;+l[2]+&#39;   &#39;+l[3]+&#39;           &#39;+l[4]+&#39;          &#39;+l[5]+&#39;         &#39;+l[6]+&#39;              &#39;+l[7])
+                self.count += 1
+                #if self.count==15:
+                    #break
+
+        self.qle1 = QLineEdit(self)#产品名称输入框
+        self.qle1.setClearButtonEnabled(True)
+        self.qle1.setPlaceholderText(&quot;请输入产品名称&quot;)
+        self.qle1.move(620,10)
+
+        self.button1 = QPushButton(self)
+        self.button1.setText(&quot;筛选&quot;)
+        self.button1.move(800,10)
+        self.button1.clicked.connect(self.handle_button1)
+
+        #self.dialog.button1.clicked.connect(self.handle_button)
+
+        &quot;&quot;&quot;self.button2 = QPushButton(self)
+        self.button2.setText(&quot;排序，以字母表顺序&quot;)
+        self.button2.move(620,50)
+        self.button2.clicked.connect(self.handle_button2)&quot;&quot;&quot;
+
+
+        self.qle2 = QLineEdit(self)#编号
+        self.qle2.setClearButtonEnabled(True)
+        self.qle2.setPlaceholderText(&quot;请输入编号&quot;)
+        self.qle2.move(620,50)
+
+        self.button3 = QPushButton(self)
+        self.button3.setText(&quot;修改&quot;)
+        self.button3.move(800,50)
+        self.button3.clicked.connect(self.handle_button3)
+
+        &quot;&quot;&quot;self.button4 = QPushButton(self)
+        self.button4.setText(&quot;上一页&quot;)
+        self.button4.move(620,130)
+        self.button4.clicked.connect(self.handle_button4)&quot;&quot;&quot;
+
+        self.text = &quot;共有&quot;+str(self.count)+&quot;项&quot;
+        self.lbl1 = QLabel(self.text,self)
+        self.lbl1.move(620,90)
+
+        &quot;&quot;&quot;self.button5 = QPushButton(self)
+        self.button5.setText(&quot;下一页&quot;)
+        self.button5.move(620,200)
+        self.button5.clicked.connect(self.handle_button5)&quot;&quot;&quot;
+
+        self.button6 = QPushButton(self)
+        self.button6.setText(&quot;刷新&quot;)
+        self.button6.move(620,130)
+        self.button6.clicked.connect(self.handle_button6)
+
+
+
+    def handle_click(self):
+        self.show()
+    def handle_button1(self):#筛选
+        count_temp = 0
+        self.listWidget.clear()
+        self.listWidget.addItem(&#39;编号 货物名称          类型        所属仓库         库位   货架   已有质量  计量单位&#39;)
+        pro = self.qle1.text()
+        with open(&quot;Goods.nt&quot;,&quot;r&quot;)as fr:
+            for each_line in fr:
+                l = each_line.split()
+                if l[1] == pro:
+                    self.listWidget.addItem(l[0]+&#39;        &#39;+l[1]+&#39;              &#39;+l[2]+&#39;   &#39;+l[3]+&#39;           &#39;+l[4]+&#39;          &#39;+l[5]+&#39;         &#39;+l[6]+&#39;              &#39;+l[7])
+                    count_temp += 1
+        self.text = &quot;共有&quot;+str(count_temp)+&quot;项&quot;
+        self.lbl1.setText(self.text)
+    #def handle_button2(self):#排序
+
+    def handle_button3(self):#修改
+
+        modify.handle_click()
+    def return_number(self):
+        if self.qle2.text():
+            self.pro_number = self.qle2.text()
+        return self.pro_number
+    #def handle_button4(self):#上一页
+        #self.listWidget.clear()
+    #def handle_button5(self):#下一页
+        #pass
+    def handle_button6(self):#刷新
+        self.listWidget.clear()
+        self.listWidget.addItem(&#39;编号 货物名称          类型        所属仓库         库位   货架   已有质量  计量单位&#39;)
+        with open(&quot;Goods.nt&quot;,&quot;r&quot;)as fr:
+            for each_line in fr:
+                l = each_line.split()
+                self.listWidget.addItem(l[0]+&#39;        &#39;+l[1]+&#39;   &#39;+l[2]+&#39;  &#39;+l[3]+&#39;           &#39;+l[4]+&#39;          &#39;+l[5]+&#39;         &#39;+l[6]+&#39;              &#39;+l[7]) 
+
+
+
+class Query_Empty_shelves(QWidget):#查询空货架
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        self.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;查询空架&#39;)
+        label1 = QLabel(self)
+
+        self.combo1 = QComboBox(self)#所在库位选项
+        self.store = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]
+        for i in range(len(self.store)):
+            self.combo1.addItem(self.store[i])
+            grid.addWidget(self.combo1,0,0)
+        self.storehouse_temp = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+
+        button_sure = QPushButton(&quot;查询&quot;)
+        grid.addWidget(button_sure,0,1)
+        button_sure.clicked.connect(self.sure_up)
+
+        self.text = &quot;&quot;
+        self.label2 = QLabel(self)
+        self.label2.setText(self.text)
+        self.label2.setAutoFillBackground(True)
+        self.palette2 = QPalette()
+        self.palette2.setColor(QPalette.WindowText,Qt.blue)
+        self.palette2.setColor(QPalette.Window,Qt.white)
+        self.label2.setPalette(self.palette2)
+        self.label2.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(self.label2,1,0)
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+    def sure_up(self):
+        judge_shelves()
+        self.label2.setText(self.text)
+        n = 0#库位对应货架数
+        s = self.combo1.currentText()#所选库位
+        if s == &#39;A&#39; or s == &#39;B&#39; or s == &#39;C&#39; or s == &#39;D&#39; or s==&#39;E&#39; or s==&#39;F&#39; or s==&#39;G&#39; or s==&#39;H&#39;:
+            n = 36
+        elif s == &#39;I&#39; or s==&#39;P&#39;:
+            n = 120
+        elif s==&#39;J&#39; or s==&#39;K&#39; or s==&#39;L&#39; or s==&#39;M&#39; or s==&#39;N&#39; or s==&#39;O&#39;:
+            n = 108
+        else:
+            n = 68
+        count = 0
+        i = self.storehouse_temp.index(s)
+        for j in range(n):
+            #print(storehouse1[i][119])
+            if storehouse1[i][j] == 0:
+                str1 = self.storehouse_temp[i] + str(j+1) + &#39;,&#39;
+                #print(str1)
+                count += 1
+                if count%10==0:
+                    self.text += &#39;\n&#39;
+                self.text += str1
+
+        self.label2.setText(self.text)
+        self.text = &#39;&#39;
+        judge_shelves()
+
+
+
+class Warehouse(QWidget):#仓库设置
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        self.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;仓库设置&#39;)
+        label1 = QLabel(self)
+        label1.setText(&quot;已有仓库：&quot;)
+        label1.setAutoFillBackground(True)
+        palette = QPalette()
+        palette.setColor(QPalette.WindowText,Qt.blue)
+        palette.setColor(QPalette.Window,Qt.white)
+        label1.setPalette(palette)
+        label1.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label1,0,0)
+        text = &quot;     诺泰仓库    &quot;
+        label2 = QLabel(self)
+        label2.setText(text)
+        label2.setAutoFillBackground(True)
+        palette1 = QPalette()
+        palette1.setColor(QPalette.WindowText,Qt.blue)
+        palette1.setColor(QPalette.Window,Qt.white)
+        label2.setPalette(palette1)
+        label2.setWordWrap(True)
+        label2.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label2,0,1)
+        button1 = QPushButton(&quot;删除&quot;)
+        button1.clicked.connect(self.delete_unit)
+        button2 = QPushButton(&quot;增加&quot;)
+        button2.clicked.connect(self.add_unit)
+        grid.addWidget(button1,1,1)
+        grid.addWidget(button2,2,1)
+        self.qle1 = QLineEdit(&quot;&quot;)
+        self.qle2 = QLineEdit(self)
+        grid.addWidget(self.qle1,1,0)
+        grid.addWidget(self.qle2,2,0)
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+    def delete_unit(self):
+        pass
+
+    def add_unit(self):
+        pass
+
+
+
+
+class Storehouse(QWidget):#库位设置
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        self.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;库位设置&#39;)
+        label1 = QLabel(self)
+        label1.setText(&quot;已有库位：&quot;)
+        label1.setAutoFillBackground(True)
+        palette = QPalette()
+        palette.setColor(QPalette.WindowText,Qt.blue)
+        palette.setColor(QPalette.Window,Qt.white)
+        label1.setPalette(palette)
+        label1.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label1,0,0)
+        text = &quot;&quot;
+        store = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]
+        for i in range(len(store)):
+            text += store[i]
+            text += &#39;,&#39;
+            if (i+1)%10 == 0:
+                text += &#39;\n&#39;
+        label2 = QLabel(self)
+        label2.setText(text)
+        label2.setAutoFillBackground(True)
+        palette1 = QPalette()
+        palette1.setColor(QPalette.WindowText,Qt.blue)
+        palette1.setColor(QPalette.Window,Qt.white)
+        label2.setPalette(palette1)
+        label2.setWordWrap(True)
+        label2.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label2,0,1)
+        button1 = QPushButton(&quot;删除&quot;)
+        button1.clicked.connect(self.delete_unit)
+        button2 = QPushButton(&quot;增加&quot;)
+        button2.clicked.connect(self.add_unit)
+        grid.addWidget(button1,1,1)
+        grid.addWidget(button2,2,1)
+        self.qle1 = QLineEdit(&quot;&quot;)
+        self.qle2 = QLineEdit(self)
+        grid.addWidget(self.qle1,1,0)
+        grid.addWidget(self.qle2,2,0)
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+    def delete_unit(self):
+        pass
+
+    def add_unit(self):
+        pass
+
+
+
+
+class Shelves(QWidget):#货架设置
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        self.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;货架设置&#39;)
+        label1 = QLabel(self)
+        label1.setText(&quot;已有货架：&quot;)
+        label1.setAutoFillBackground(True)
+        palette = QPalette()
+        palette.setColor(QPalette.WindowText,Qt.blue)
+        palette.setColor(QPalette.Window,Qt.white)
+        label1.setPalette(palette)
+        label1.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label1,0,0)
+        text = &quot;&quot;
+        for i in range(116):
+            text += str(i+1)
+            text += &#39;,&#39;
+            if (i+1)%10 == 0:
+                text += &#39;\n&#39;
+        label2 = QLabel(self)
+        label2.setText(text)
+        label2.setAutoFillBackground(True)
+        palette1 = QPalette()
+        palette1.setColor(QPalette.WindowText,Qt.blue)
+        palette1.setColor(QPalette.Window,Qt.white)
+        label2.setPalette(palette1)
+        label2.setWordWrap(True)
+        label2.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label2,0,1)
+        button1 = QPushButton(&quot;删除&quot;)
+        button1.clicked.connect(self.delete_unit)
+        button2 = QPushButton(&quot;增加&quot;)
+        button2.clicked.connect(self.add_unit)
+        grid.addWidget(button1,1,1)
+        grid.addWidget(button2,2,1)
+        self.qle1 = QLineEdit(&quot;&quot;)
+        self.qle2 = QLineEdit(self)
+        #qle2.textChanged[str].connect(self.add_unit)
+        grid.addWidget(self.qle1,1,0)
+        grid.addWidget(self.qle2,2,0)
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+    def delete_unit(self):
+        pass
+
+    def add_unit(self):
+        pass
+
+
+
+class Goods_Types(QWidget):#货物类型
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        self.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;货物类型&#39;)
+        label1 = QLabel(self)
+        label1.setText(&quot;已有货物类型：&quot;)
+        label1.setAutoFillBackground(True)
+        palette = QPalette()
+        palette.setColor(QPalette.WindowText,Qt.blue)
+        palette.setColor(QPalette.Window,Qt.white)
+        label1.setPalette(palette)
+        label1.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label1,0,0)
+        text = &quot;&quot;
+        for i in range(len(goods_types)):
+            text += goods_types[i]
+            text += &#39;,&#39;
+        label2 = QLabel(self)
+        label2.setText(text)
+        label2.setAutoFillBackground(True)
+        palette1 = QPalette()
+        palette1.setColor(QPalette.WindowText,Qt.blue)
+        palette1.setColor(QPalette.Window,Qt.white)
+        label2.setPalette(palette1)
+        label2.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label2,0,1)
+        button1 = QPushButton(&quot;删除&quot;)
+        button1.clicked.connect(self.delete_unit)
+        button2 = QPushButton(&quot;增加&quot;)
+        button2.clicked.connect(self.add_unit)
+        grid.addWidget(button1,1,1)
+        grid.addWidget(button2,2,1)
+        self.qle1 = QLineEdit(self)
+        self.qle2 = QLineEdit(self)
+        #qle2.textChanged[str].connect(self.add_unit)
+        grid.addWidget(self.qle1,1,0)
+        grid.addWidget(self.qle2,2,0)
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+    def delete_unit(self):
+        pass
+
+    def add_unit(self):
+        pass
+
+
+class Unit(QWidget):#计量单位
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+    def initUI(self):
+        judge_shelves()
+        grid = QGridLayout()
+        self.setLayout(grid)
+        self.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;计量单位&#39;)
+        label1 = QLabel(self)
+        label1.setText(&quot;已有计量单位：&quot;)
+        label1.setAutoFillBackground(True)
+        palette = QPalette()
+        palette.setColor(QPalette.WindowText,Qt.blue)
+        palette.setColor(QPalette.Window,Qt.white)
+        label1.setPalette(palette)
+        label1.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(label1,0,0)
+        text = &quot;&quot;
+        for i in range(len(units)):
+            text += units[i]
+            text += &#39;,&#39;
+        self.label2 = QLabel(self)
+        self.label2.setText(text)
+        self.label2.setAutoFillBackground(True)
+        palette1 = QPalette()
+        palette1.setColor(QPalette.WindowText,Qt.blue)
+        palette1.setColor(QPalette.Window,Qt.white)
+        self.label2.setPalette(palette1)
+        self.label2.setFont(QFont(&quot;Roman times&quot;,15,QFont.Bold))
+        grid.addWidget(self.label2,0,1)
+        button1 = QPushButton(&quot;删除&quot;)
+        button1.clicked.connect(self.delete_unit)
+        button2 = QPushButton(&quot;增加&quot;)
+        button2.clicked.connect(self.add_unit)
+        grid.addWidget(button1,1,1)
+        grid.addWidget(button2,2,1)
+        self.qle1 = QLineEdit(self)
+        self.qle2 = QLineEdit(self)
+        grid.addWidget(self.qle1,1,0)
+        grid.addWidget(self.qle2,2,0)
+
+
+
+    def delete_unit(self):
+        pass
+
+    def add_unit(self):
+        text1 = self.qle2.text()
+        with open(&quot;units.nt&quot;,&quot;a&quot;)as fw:
+            fw.write(&#39; &#39;+text1)
+        units.clear()
+        read_units()
+        text2 = &#39;&#39;
+        for i in range(len(units)):
+            text2 += units[i]
+            text2 += &#39;,&#39;
+        self.label2.setText(text2)
+
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.show()
+
+class Modify(QMainWindow):#上架
+    def __init__(self,pro_number):
+        super().__init__()
+        self.pro_number = pro_number
+        self.initUI()
+    def initUI(self):
+        self.goods_types = [&quot;产成品&quot;,&quot;原材料&quot;,&quot;包装物&quot;]#货物类型
+        judge_shelves()
+        self.widget = QWidget()
+        self.setCentralWidget(self.widget)
+        self.widget.grid = QGridLayout()
+        self.widget.setLayout(self.widget.grid)
+        self.widget.resize(400,400)
+        self.center()
+        self.setWindowTitle(&#39;信息修改&#39;)
+        with open(&quot;Goods.nt&quot;,&quot;r&quot;)as fr:
+            for each_line in fr:
+                l = each_line.split()
+                if self.pro_number == l[0]:
+                    self.pro = []
+                    self.pro = l
+        #print(type(self.pro_number))
+        self.widget.label1 = QLabel(self)
+        self.widget.label1.setText(&quot;修改名称：&quot;)
+        self.widget.label1.setAutoFillBackground(True)
+        self.widget.palette1 = QPalette()
+        self.widget.palette1.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette1.setColor(QPalette.Window,Qt.white)
+        self.widget.label1.setPalette(self.widget.palette1)
+        self.widget.label1.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label1,0,0)
+
+        self.widget.label2 = QLabel(self)
+        self.widget.label2.setText(&quot;修改类型：&quot;)
+        self.widget.label2.setAutoFillBackground(True)
+        self.widget.palette2 = QPalette()
+        self.widget.palette2.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette2.setColor(QPalette.Window,Qt.white)
+        self.widget.label2.setPalette(self.widget.palette2)
+        self.widget.label2.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label2,1,0)
+
+        self.widget.label3 = QLabel(self)
+        self.widget.label3.setText(&quot;修改仓库：&quot;)
+        self.widget.label3.setAutoFillBackground(True)
+        self.widget.palette3 = QPalette()
+        self.widget.palette3.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette3.setColor(QPalette.Window,Qt.white)
+        self.widget.label3.setPalette(self.widget.palette3)
+        self.widget.label3.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label3,2,0)
+
+        self.widget.label4 = QLabel(self)
+        self.widget.label4.setText(&quot;修改库位：&quot;)
+        self.widget.label4.setAutoFillBackground(True)
+        self.widget.palette4 = QPalette()
+        self.widget.palette4.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette4.setColor(QPalette.Window,Qt.white)
+        self.widget.label4.setPalette(self.widget.palette4)
+        self.widget.label4.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label4,3,0)
+
+        self.widget.label5 = QLabel(self)
+        self.widget.label5.setText(&quot;修改货架：&quot;)
+        self.widget.label5.setAutoFillBackground(True)
+        self.widget.palette5 = QPalette()
+        self.widget.palette5.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette5.setColor(QPalette.Window,Qt.white)
+        self.widget.label5.setPalette(self.widget.palette5)
+        self.widget.label5.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label5,4,0)
+
+        self.widget.label6 = QLabel(self)
+        self.widget.label6.setText(&quot;修改质量：&quot;)
+        self.widget.label6.setAutoFillBackground(True)
+        self.widget.palette6 = QPalette()
+        self.widget.palette6.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette6.setColor(QPalette.Window,Qt.white)
+        self.widget.label6.setPalette(self.widget.palette6)
+        self.widget.label6.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label6,5,0)
+
+        self.widget.label7 = QLabel(self)
+        self.widget.label7.setText(&quot;修改单位：&quot;)
+        self.widget.label7.setAutoFillBackground(True)
+        self.widget.palette7 = QPalette()
+        self.widget.palette7.setColor(QPalette.WindowText,Qt.blue)
+        self.widget.palette7.setColor(QPalette.Window,Qt.white)
+        self.widget.label7.setPalette(self.widget.palette7)
+        self.widget.label7.setFont(QFont(&quot;Roman times&quot;,13,QFont.Bold))
+        self.widget.grid.addWidget(self.widget.label7,6,0)
+
+        self.widget.qle1 = QLineEdit(self)#产品名称输入框
+        self.widget.qle1.setClearButtonEnabled(True)
+        self.widget.qle1.setText(self.pro[1])
+        self.widget.qle2 = QLineEdit(self)#上架质量
+        self.widget.qle2.setClearButtonEnabled(True)
+        self.widget.qle2.setText(self.pro[6])
+        self.widget.grid.addWidget(self.widget.qle1,0,1)
+        self.widget.grid.addWidget(self.widget.qle2,5,1)
+
+        self.widget.button_sure = QPushButton(&quot;确认修改&quot;)
+        self.widget.grid.addWidget(self.widget.button_sure,7,1)
+        self.widget.button_sure.clicked.connect(self.sure_up)
+
+
+        self.widget.combo1 = QComboBox(self)#货物类型选项
+        for i in range(len(self.goods_types)):
+            self.widget.combo1.addItem(self.goods_types[i])
+        self.widget.combo1.setCurrentText(self.pro[2])
+        self.widget.grid.addWidget(self.widget.combo1,1,1)
+
+        self.widget.combo2 = QComboBox(self)#所在仓库选项
+        self.widget.combo2.addItem(&quot;诺泰仓库&quot;)
+        self.widget.grid.addWidget(self.widget.combo2,2,1)
+
+        self.widget.combo3 = QComboBox(self)#所在库位选项
+        store = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]
+        for i in range(len(store)):
+            self.widget.combo3.addItem(store[i])
+        self.widget.combo3.setCurrentText(self.pro[4])
+        self.widget.grid.addWidget(self.widget.combo3,3,1)
+
+        self.widget.combo4 = QComboBox(self)#所在货架选项
+        for i in range(120):
+            str1 = str(i+1)
+            self.widget.combo4.addItem(str1)
+        self.widget.combo4.setCurrentText(self.pro[5])
+        self.widget.grid.addWidget(self.widget.combo4,4,1)
+
+        self.widget.combo5 = QComboBox(self)#计量单位选项
+        for i in range(len(units)):
+            self.widget.combo5.addItem(units[i])
+        self.widget.combo1.setCurrentText(self.pro[7])
+        self.widget.grid.addWidget(self.widget.combo5,6,1)
+
+        self.statu = &#39;修改已准备就绪！&#39;#状态栏
+        self.statusBar().showMessage(self.statu)
+
+
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def handle_click(self):
+        self.pro_number = query_goods.return_number()
+        with open(&quot;Goods.nt&quot;,&quot;r&quot;)as fr:
+            for each_line in fr:
+                l = each_line.split()
+                if self.pro_number == l[0]:
+                    self.pro = []
+                    self.pro = l
+        self.widget.qle1.setText(self.pro[1])
+        self.widget.qle2.setText(self.pro[6])
+        self.widget.combo1.setCurrentText(self.pro[2])
+        self.widget.combo3.setCurrentText(self.pro[4])
+        self.widget.combo4.setCurrentText(self.pro[5])
+        self.widget.combo1.setCurrentText(self.pro[7])
+        self.show()
+
+    def sure_up(self):
+        judge_shelves()        
+        storehouse_temp = [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;F&#39;,&#39;G&#39;,&#39;H&#39;,&#39;I&#39;,&#39;J&#39;,&#39;K&#39;,&#39;L&#39;,&#39;M&#39;,&#39;N&#39;,&#39;O&#39;,&#39;P&#39;,&#39;Q&#39;]#库位
+        text1 = self.widget.qle1.text()#产品名称
+        text2 = self.widget.qle2.text()#质量
+        text3 = self.widget.combo1.currentText()#货物类型
+        text4 = self.widget.combo2.currentText()#所在仓库
+        text5 = self.widget.combo3.currentText()#库位
+        text6 = self.widget.combo4.currentText()#货架
+        text7 = self.widget.combo5.currentText()#单位
+        with open(&quot;Goods.nt&quot;,&#39;r&#39;) as fr:            
+            lines = fr.readlines()            
+            for each_line in lines:
+                l = each_line.split()
+                #print(l[0])
+                if l[0]==self.pro_number:
+
+                    with open(&quot;Goods.nt&quot;,&#39;w&#39;) as fw:
+                        num1 = storehouse_temp.index(text5)
+                        num2 = int(text6)
+
+                        if not(text2.isdigit()):
+                            self.statu = &quot;质量输入违法！重新输入&quot;
+                            self.statusBar().showMessage(self.statu)
+                            fw.writelines(lines)
+                        elif storehouse1[num1][num2-1] == 1:
+                            self.statu = &quot;此货架已有货物！重新输入&quot;
+                            self.statusBar().showMessage(self.statu)
+                            fw.writelines(lines)
+                        else:
+                            l = self.pro_number + &#39; &#39; + text1+&#39; &#39;+text3+&#39; &#39;+text4+&#39; &#39;+text5+&#39; &#39;+text6+&#39; &#39;+text2+&#39; &#39;+text7+&#39;\n&#39;
+                            lines[int(self.pro_number)] = l
+                            print(lines)
+                            fw.writelines(lines)                                                                                 
+                            self.statu = &quot;修改成功！&quot;
+                            self.statusBar().showMessage(self.statu)
+        judge_shelves()
+
+
+if __name__ == &#39;__main__&#39;:
+    app = QApplication(sys.argv)
+    dialog = logindialog()
+    if  dialog.exec_()==QDialog.Accepted:
+        read_units()
+        mainwindow = Mainwindow()
+        writer = Writer()
+        contact = Contact()
+        upper = Upper_shelf()
+        lower = Lower_shelf()
+        move = Move()
+        query_goods = Query_Goods()
+        query_empty_shelves = Query_Empty_shelves()
+        warehouse = Warehouse()
+        storehouse = Storehouse()
+        shelves = Shelves()
+        goods_types = Goods_Types()
+        unit = Unit()
+        modify = Modify(query_goods.return_number())
+        sys.exit(app.exec_())
+
+</code></pre>
+<p>当时也没有想着把功能分文件写，全部挤在一个文件里面，只是通过函数来去区分，如果让我现在去调整，我是充满恐惧的，哈哈哈，恐惧自己的代码可还行。对了，其中还结合了mysql数据库。有兴趣的朋友自己去实现以下。我估计是没有 ，，，</p>
+<h2 id="运行截图"><a href="#运行截图" class="headerlink" title="运行截图"></a>运行截图</h2><h3 id="登陆界面"><a href="#登陆界面" class="headerlink" title="登陆界面"></a>登陆界面</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153359454.png" alt="image-20200302153359454"></p>
+<h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153525378.png" alt="image-20200302153525378"></p>
+<h3 id="货物上架"><a href="#货物上架" class="headerlink" title="货物上架"></a>货物上架</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153558665.png" alt="image-20200302153558665"></p>
+<h3 id="货物下架"><a href="#货物下架" class="headerlink" title="货物下架"></a>货物下架</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153630988.png" alt="image-20200302153630988"></p>
+<h3 id="货物调度"><a href="#货物调度" class="headerlink" title="货物调度"></a>货物调度</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153701929.png" alt="image-20200302153701929"></p>
+<h3 id="货物查询"><a href="#货物查询" class="headerlink" title="货物查询"></a>货物查询</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153732148.png" alt="image-20200302153732148"></p>
+<h3 id="空货架查询"><a href="#空货架查询" class="headerlink" title="空货架查询"></a>空货架查询</h3><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8Epyhon%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B9%8B%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302153805090.png" alt="image-20200302153805090"></p>
+<p>还有其他仓库设置功能，这里就不po出来了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​        虽然这个项目做的不是特别成功，但是没有嫌弃自己孩子。毕竟想着自己手撸ui的辛苦史，也算是被自己感动的热泪盈眶，有什么问题的，欢迎加笔者qq一起解决386362062</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

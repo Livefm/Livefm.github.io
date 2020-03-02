@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Livefm_blog</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/IEEE802.3以太网帧封/">
+								<i class="fa fa-file"></i>
+								IEEE802.3以太网帧封
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file active">
+							<a href="/2020/03/02/图的操作和应用之景区信息管理系统/">
+								<i class="fa fa-file"></i>
+								图的操作和应用之景区信息管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于pyhon图形化编程之仓库管理系统/">
+								<i class="fa fa-file"></i>
+								基于pyhon图形化编程之仓库管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于古典密码新密码算法的设计/">
+								<i class="fa fa-file"></i>
+								基于古典密码新密码算法的设计
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/模拟登录教务处爬取相关信息/">
+								<i class="fa fa-file"></i>
+								模拟登录教务处爬取相关信息
+							</a>
+						</li>
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+    <li class="menu-item">
+        <a href="https://github.com/Livefm" class="menu-item-link" target="_blank">github</a>
+    </li>
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">Livefm</span>
+	<span id="post-date">2020-03-02 14:51:23</span>
+</div>
+
+<div id="article">
+	<h1 id="图的操作和应用之景区信息管理系统"><a href="#图的操作和应用之景区信息管理系统" class="headerlink" title="图的操作和应用之景区信息管理系统"></a>图的操作和应用之景区信息管理系统</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了更加掌握数据结构中图相关知识，我决定动手实现一个景区管理系统</p>
+<h2 id="语言和工具"><a href="#语言和工具" class="headerlink" title="语言和工具"></a>语言和工具</h2><p>语言：c++</p>
+<p>工具：dev-c++</p>
+<h2 id="实现功能概览"><a href="#实现功能概览" class="headerlink" title="实现功能概览"></a>实现功能概览</h2><p>(1)读文件创建图</p>
+<p>输入：从Vex.txt文件中读取景点信息，从Edge.txt文件中读取道路信息。</p>
+<p>处理：根据读取的景区信息创建景区景点图。</p>
+<p><strong>(2)</strong> <strong>查询景点</strong></p>
+<p>输入：想要查询的景点的编号。</p>
+<p>处理：根据输入的景点编号，查询该景点及相邻景点的信息。</p>
+<p>输出：</p>
+<p>① 景点名字</p>
+<p>② 景点介绍</p>
+<p>③ 相邻景区的名字</p>
+<p>④ 到达相邻景区的路径长度</p>
+<p><strong>(3)</strong> <strong>旅游景点导航</strong></p>
+<p>输入：起始景点的编号。</p>
+<p>处理：使用深度优先搜索(DFS)算法，查询以该景点为起点，无回路游览整个景区的路线。</p>
+<p>输出：<strong>所有符合要求</strong>的导航路线。</p>
+<p><strong>(4)</strong> <strong>搜索最短路径</strong></p>
+<p>输入：</p>
+<p>① 起始景点的编号</p>
+<p>② 终点的编号。</p>
+<p>处理：使用迪杰斯特拉(Dijkstra)算法，求得从起始景点到终点之间的最短路径，计算路径总长度。</p>
+<p>输出：</p>
+<p>① 最短路线</p>
+<p>② 路径总长度</p>
+<p><strong>(5)</strong> <strong>铺设电路规划</strong></p>
+<p>处理：根据景区景点图使用普里姆(Prim)算法构造最小生成树，设计出一套铺设线路最短，但能满足每个景点都能通电的方案。</p>
+<p>输出：</p>
+<p>① 需要铺设电路的道路</p>
+<p>② 每条道路铺设电路的长度</p>
+<p>③ 铺设电路的总长度</p>
+<p><strong>(6)</strong> <strong>修改图保存文件</strong></p>
+<p>插入、删除、修改顶点、边的信息，注意顶点和边的关系，之后保存文件，重新读取文件建立图的存储结构并显示。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><pre><code class="c++c">#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+using namespace std;
+#define MaxVertices 50//假设包含150个顶点
+#define MaxWeight 32767 //不邻接时为32767，但输出时用 &quot;∞&quot;
+typedef struct{ //包含权的邻接矩阵的的定义
+    int Vex_num[20];//顶点编号 
+    char Vex_name[20];//顶点名称 
+    int Edge[20][20]; //边的权信息的数组
+    int numV; //当前的顶点数
+    int numE; //当前的边数
+    string information[20];//景点信息 
+}Graph;
+void  Vex_num_name(Graph *G,int v){// 讲顶点编号和名称信息存进来 
+    ifstream openVex(&quot;Vex.txt&quot;);
+    char buffer[100];
+    openVex.getline(buffer,20);
+    int n = 0;
+    int m;
+    for(int i=0;i&lt;3*v;i++){
+        openVex.getline(buffer,100);
+        if(i%3==2) n++;//保证同步 
+        switch(i%3){
+            case 0:sscanf(buffer,&quot;%d&quot;,&amp;G-&gt;Vex_num[n]);break;
+            case 1:sscanf(buffer,&quot;%c&quot;,&amp;G-&gt;Vex_name[n]);break;
+            case 2:G-&gt;information[n] = buffer;break;
+        }
+    }
+}
+void CreateGraph(Graph *G,int v,int e) //图的生成函数
+{
+    int vi,vj,i,j;
+    G-&gt;numV=v;G-&gt;numE=e;
+    for(i=0;i&lt;v;i++) //图的初始化
+        for(j=0;j&lt;v;j++)
+            {
+            /*if(i==j)
+                G-&gt;Edge[i][j]=0;
+            else*/
+                G-&gt;Edge[i][j]=32767;
+            }
+      ifstream openEdge(&quot;Edge.txt&quot;);
+    int array[3];
+    char string[10];
+    /*int *array;
+    array = (int*)malloc(Edge_count*sizeof(int));*/
+    while(!openEdge.eof()){
+        openEdge.getline(string,10);
+        sscanf(string,&quot;%d %d %d&quot;,&amp;array[0],&amp;array[1],&amp;array[2]);
+        vi = array[0];
+        vj = array[1];
+        G-&gt;Edge[vi][vj]=array[2];
+           G-&gt;Edge[vj][vi]=array[2];
+    }
+}
+void DispGraph(Graph *G) //输出邻接矩阵的信息
+{
+    int i,j;
+    printf(&quot;\n输出顶点的信息:\n&quot;);
+    for(i=0;i&lt;G-&gt;numV;i++)
+        printf(&quot;%8c&quot;,G-&gt;Vex_name[i]);
+
+    printf(&quot;\n输出邻接矩阵:\n&quot;);
+    printf(&quot;\t&quot;);
+    for(i=0;i&lt;G-&gt;numV;i++)
+        printf(&quot;%8c&quot;,G-&gt;Vex_name[i]);
+    for(i=0;i&lt;G-&gt;numV;i++)
+    {
+        printf(&quot;\n%8c&quot;,G-&gt;Vex_name[i]);
+        for(j=0;j&lt;G-&gt;numV;j++)
+        {
+        if(G-&gt;Edge[i][j]==32767)
+            printf(&quot;%8s&quot;, &quot;∞&quot;);
+        else
+            printf(&quot;%8d&quot;,G-&gt;Edge[i][j]);
+        }
+        printf(&quot;\n&quot;);
+    }
+
+}
+int Return_vex(){//返回景点数 
+    char string[10];
+    int vex_count = 0;
+    ifstream openVex(&quot;Vex.txt&quot;);
+    openVex.getline(string,10);
+    sscanf(string,&quot;%d&quot;,&amp;vex_count);
+    return vex_count;
+}
+int Return_edge_count(){//返回边数 
+    char string[10];
+    int Edge_count = 0;
+    ifstream openEdge(&quot;Edge.txt&quot;);
+    while(!openEdge.eof()){
+        openEdge.getline(string,10);
+        Edge_count++;
+    }
+    return Edge_count;
+}
+void Query_imformation(Graph *G,int v,int n){//查询景点信息 
+    cout&lt;&lt;&quot;您所查询景点名字是：&quot;&lt;&lt;G-&gt;Vex_name[v]&lt;&lt;endl&lt;&lt;&quot;景点相关介绍：&quot;&lt;&lt;G-&gt;information[v+1]&lt;&lt;endl&lt;&lt;&quot;相邻景区有：&quot;&lt;&lt;endl;
+    for(int i = 0;i&lt;n;i++)
+        if(G-&gt;Edge[v][i]!=0&amp;&amp;G-&gt;Edge[v][i]!=32767)
+            cout&lt;&lt;G-&gt;Vex_name[i]&lt;&lt;&#39; &#39;&lt;&lt;&quot;与此景点相距：&quot;&lt;&lt;G-&gt;Edge[v][i]&lt;&lt;endl; 
+}
+void DFSTra(Graph *G,int v){//搜索最短路径 
+
+}
+void ShortPath_DIJ(Graph *G,int v1,int v2)
+{
+    int dist[MaxVertices];//表示当前点到源点的最短路径长度
+    int prev[MaxVertices];//记录当前点的前一个结点 
+    bool s[MaxVertices];//判断是否已存入该点到s集合中
+    for(int i = 0;i&lt;G-&gt;numV;i++)
+    dist[i] = 32767;
+    for(int i = 0;i&lt;G-&gt;numV;i++){
+        dist[i] = G-&gt;Edge[v1][i];
+        s[i] = 0;//初始都未用过该点 
+        if(dist[i] == 32767)//确定其他点是否与v1相通 
+            prev[i] = -1;
+        else prev[i] = v1;    
+    } 
+    dist[v1] = 0;
+    s[v1] = 1;
+    for(int i = 1;i&lt;G-&gt;numV;i++){//依次将未放入s集合的结点中，取dist[]最小值的结点，放入集合s中。当s包含所有点，dist就记录到所有顶点之间的最短路径长度 
+        int tmp = 32767;
+        int u = v1;
+        for(int j = 0;j&lt;G-&gt;numV;j++)//找出当前未使用的点j的dist[j]最小值
+            if(!s[j]&amp;&amp;dist[j]&lt;tmp){
+                u = j;//u保存当前邻接点中距离最小的点的号码
+                tmp = dist[j]; 
+            }
+        s[u] = 1;//表示u点已存入s集合
+        for(int j = 0;j&lt;G-&gt;numV;j++){//更新dist 
+            if(!s[j]&amp;&amp;G-&gt;Edge[u][j]&lt;32767){
+                int newdist = dist[u] + G-&gt;Edge[u][j];
+                if(newdist&lt;dist[j]){
+                    dist[j] = newdist;
+                    prev[j] = u;
+                }
+            }
+        }
+    }
+    int sum = 0;//计算最短路径的长度 
+    int que[MaxVertices];
+    int tot = 0;
+    que[tot] = v2;    
+    tot++;
+    int temp = prev[v2];
+    while(temp!=v1){
+        que[tot] = temp;
+        tot++;
+        temp = prev[temp];
+    }
+    que[tot] = v1;
+    for(int i = tot;i&gt;=0;i--){
+        if(i!=0)
+            cout&lt;&lt;que[i]&lt;&lt;&quot;-&gt;&quot;;
+        else
+            cout&lt;&lt;que[i]&lt;&lt;endl;
+        if(i&lt;tot)
+        sum += G-&gt;Edge[que[i]][que[i-1]];
+
+
+    } 
+    cout&lt;&lt;G-&gt;Edge[0][4];
+    cout&lt;&lt;&quot;最短路线的总长度为：&quot;&lt;&lt;sum&lt;&lt;endl;    
+
+}
+int main(){
+    int Vex_count = 0;
+    Vex_count = Return_vex();
+    int Edge_count = 0;
+    Edge_count = Return_edge_count();
+    Graph G;
+    Vex_num_name(&amp;G,Vex_count);
+    CreateGraph(&amp;G,Vex_count,Edge_count);
+    DispGraph(&amp;G);
+    int n;
+    cout&lt;&lt;&quot;请输入所要查询景点的编号：&quot;&lt;&lt;endl;
+    //cin&gt;&gt;n;
+    //Query_imformation(&amp;G,n,Vex_count);
+    int v1,v2;
+    cout&lt;&lt;&quot;请输入所要搜索最短路径的起点编号和终点编号，用空格隔开：&quot;&lt;&lt;endl;
+    cin&gt;&gt;v1&gt;&gt;v2;
+    ShortPath_DIJ(&amp;G,v1,v2);    
+    return 0;
+}</code></pre>
+<h2 id="运行截图"><a href="#运行截图" class="headerlink" title="运行截图"></a>运行截图</h2><p><img src="/2020/03/02/%E5%9B%BE%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8%E4%B9%8B%E6%99%AF%E5%8C%BA%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/image-20200302150125948.png" alt="image-20200302150125948"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​        对照着书本上的知识，一步一步做，总算是完成了。也让我认识到，数据结构确实非常重要，它决定了你在学其他计算机知识时所能达到的高度，用比较底层的思想去思考问题。还得努力！！！</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

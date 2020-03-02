@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Livefm_blog</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file active">
+							<a href="/2020/03/02/IEEE802.3以太网帧封/">
+								<i class="fa fa-file"></i>
+								IEEE802.3以太网帧封
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/图的操作和应用之景区信息管理系统/">
+								<i class="fa fa-file"></i>
+								图的操作和应用之景区信息管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于pyhon图形化编程之仓库管理系统/">
+								<i class="fa fa-file"></i>
+								基于pyhon图形化编程之仓库管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于古典密码新密码算法的设计/">
+								<i class="fa fa-file"></i>
+								基于古典密码新密码算法的设计
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/模拟登录教务处爬取相关信息/">
+								<i class="fa fa-file"></i>
+								模拟登录教务处爬取相关信息
+							</a>
+						</li>
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+    <li class="menu-item">
+        <a href="https://github.com/Livefm" class="menu-item-link" target="_blank">github</a>
+    </li>
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">Livefm</span>
+	<span id="post-date">2020-03-02 14:08:48</span>
+</div>
+
+<div id="article">
+	<h1 id="IEEE-802-3以太网帧封装"><a href="#IEEE-802-3以太网帧封装" class="headerlink" title="IEEE 802.3以太网帧封装"></a>IEEE 802.3以太网帧封装</h1><h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>学完计算机网络的课程之后，依旧是大部分都停留在课本上的理论知识上，为了使自己对以太网帧的处理相关知识更了解，决定自己动手实现一下以太网帧处理的过程。</p>
+<h2 id="使用语言工具及相关插件"><a href="#使用语言工具及相关插件" class="headerlink" title="使用语言工具及相关插件"></a>使用语言工具及相关插件</h2><p>语言：python</p>
+<p>工具：pycharm，qtdesigner</p>
+<p>插件：PyQt5</p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><img src="/2020/03/02/IEEE802.3%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E5%B0%81/image-20200302141346950.png" alt="image-20200302141346950" style="zoom:80%;">
+
+<h2 id="ui设计"><a href="#ui设计" class="headerlink" title="ui设计"></a>ui设计</h2><h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;ui version=&quot;4.0&quot;&gt;
+ &lt;class&gt;Form&lt;/class&gt;
+ &lt;widget class=&quot;QWidget&quot; name=&quot;Form&quot;&gt;
+  &lt;property name=&quot;geometry&quot;&gt;
+   &lt;rect&gt;
+    &lt;x&gt;0&lt;/x&gt;
+    &lt;y&gt;0&lt;/y&gt;
+    &lt;width&gt;1074&lt;/width&gt;
+    &lt;height&gt;492&lt;/height&gt;
+   &lt;/rect&gt;
+  &lt;/property&gt;
+  &lt;property name=&quot;windowTitle&quot;&gt;
+   &lt;string&gt;Form&lt;/string&gt;
+  &lt;/property&gt;
+  &lt;widget class=&quot;QLineEdit&quot; name=&quot;lineEdit&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;290&lt;/x&gt;
+     &lt;y&gt;40&lt;/y&gt;
+     &lt;width&gt;271&lt;/width&gt;
+     &lt;height&gt;21&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLineEdit&quot; name=&quot;lineEdit_2&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;290&lt;/x&gt;
+     &lt;y&gt;90&lt;/y&gt;
+     &lt;width&gt;271&lt;/width&gt;
+     &lt;height&gt;21&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLineEdit&quot; name=&quot;lineEdit_3&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;290&lt;/x&gt;
+     &lt;y&gt;140&lt;/y&gt;
+     &lt;width&gt;271&lt;/width&gt;
+     &lt;height&gt;21&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLineEdit&quot; name=&quot;lineEdit_4&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;290&lt;/x&gt;
+     &lt;y&gt;180&lt;/y&gt;
+     &lt;width&gt;271&lt;/width&gt;
+     &lt;height&gt;21&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLabel&quot; name=&quot;label&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;170&lt;/x&gt;
+     &lt;y&gt;40&lt;/y&gt;
+     &lt;width&gt;101&lt;/width&gt;
+     &lt;height&gt;16&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;font&quot;&gt;
+    &lt;font&gt;
+     &lt;family&gt;黑体&lt;/family&gt;
+     &lt;pointsize&gt;10&lt;/pointsize&gt;
+    &lt;/font&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;text&quot;&gt;
+    &lt;string&gt;目的MAC地址&lt;/string&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLabel&quot; name=&quot;label_2&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;170&lt;/x&gt;
+     &lt;y&gt;90&lt;/y&gt;
+     &lt;width&gt;101&lt;/width&gt;
+     &lt;height&gt;16&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;font&quot;&gt;
+    &lt;font&gt;
+     &lt;family&gt;黑体&lt;/family&gt;
+     &lt;pointsize&gt;10&lt;/pointsize&gt;
+    &lt;/font&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;text&quot;&gt;
+    &lt;string&gt;源MAC地址&lt;/string&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLabel&quot; name=&quot;label_3&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;170&lt;/x&gt;
+     &lt;y&gt;140&lt;/y&gt;
+     &lt;width&gt;101&lt;/width&gt;
+     &lt;height&gt;16&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;font&quot;&gt;
+    &lt;font&gt;
+     &lt;family&gt;黑体&lt;/family&gt;
+     &lt;pointsize&gt;10&lt;/pointsize&gt;
+    &lt;/font&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;text&quot;&gt;
+    &lt;string&gt;帧数据部分&lt;/string&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QLabel&quot; name=&quot;label_4&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;170&lt;/x&gt;
+     &lt;y&gt;180&lt;/y&gt;
+     &lt;width&gt;101&lt;/width&gt;
+     &lt;height&gt;16&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;font&quot;&gt;
+    &lt;font&gt;
+     &lt;family&gt;黑体&lt;/family&gt;
+     &lt;pointsize&gt;10&lt;/pointsize&gt;
+    &lt;/font&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;text&quot;&gt;
+    &lt;string&gt;长度字段&lt;/string&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QPushButton&quot; name=&quot;pushButton&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;580&lt;/x&gt;
+     &lt;y&gt;40&lt;/y&gt;
+     &lt;width&gt;93&lt;/width&gt;
+     &lt;height&gt;161&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;font&quot;&gt;
+    &lt;font&gt;
+     &lt;family&gt;黑体&lt;/family&gt;
+     &lt;pointsize&gt;14&lt;/pointsize&gt;
+    &lt;/font&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;text&quot;&gt;
+    &lt;string&gt;提交&lt;/string&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;default&quot;&gt;
+    &lt;bool&gt;false&lt;/bool&gt;
+   &lt;/property&gt;
+  &lt;/widget&gt;
+  &lt;widget class=&quot;QTableWidget&quot; name=&quot;tableWidget&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;60&lt;/x&gt;
+     &lt;y&gt;210&lt;/y&gt;
+     &lt;width&gt;921&lt;/width&gt;
+     &lt;height&gt;111&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;row&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt; &lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/row&gt;
+   &lt;row&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;结果&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/row&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;前导码&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;帧前界定符&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;目的地址&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;源地址&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;长度字段&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;数据字段&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+   &lt;column&gt;
+    &lt;property name=&quot;text&quot;&gt;
+     &lt;string&gt;校验字段&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/column&gt;
+  &lt;/widget&gt;
+ &lt;/widget&gt;
+ &lt;resources/&gt;
+ &lt;connections/&gt;
+&lt;/ui&gt;</code></pre>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/2020/03/02/IEEE802.3%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E5%B0%81/image-20200302141838237.png" alt="image-20200302141838237"></p>
+<h2 id="主文件main-py"><a href="#主文件main-py" class="headerlink" title="主文件main.py"></a>主文件main.py</h2><pre><code class="python">import sys
+from PyQt5.QtWidgets import QApplication,QWidget,QMainWindow
+from homework import Ui_Form
+from PyQt5 import QtGui
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+
+class mwindow(QWidget,Ui_Form):
+    def __init__(self):
+        super(mwindow,self).__init__()
+        self.setupUi(self)
+        self.resizeEvent(self)
+
+    def resizeEvent(self, event):
+        palette = QPalette()
+        pix = QPixmap(&#39;background.jpg&#39;)
+        pix = pix.scaled(self.width(), self.height())
+        palette.setBrush(QPalette.Background, QBrush(pix))
+        self.setPalette(palette)
+
+    def submit(self):
+        info = []
+        for i in self.lineEdit_3.text():
+            info.append(int(i))
+        while len(info)&lt;368:
+            info.append(0)
+        crc_n = 8
+        p = [1,0,0,0,0,0,1,1,1]
+        times = len(info)
+        n = crc_n+1
+
+        # 左移补零
+        for i in range(crc_n):
+            info.append(0)
+        # 除
+        q =[]
+        for i in range(times):
+            if info[i] == 1:
+                q.append(1)
+                for j in range(n):
+                    info[j + i] = info[j + i] ^ p[j]
+            else:
+                q.append(0)
+
+        # 余数
+        check_code = info[-crc_n::]
+
+        # 生成编码
+
+        check_code_temp = &#39;&#39;
+        code = info.copy()
+        for i in check_code:
+            code.append(i)
+            check_code_temp += str(i)
+        item = self.tableWidget.item(1, 0)
+        item.setText(&quot;0xAAAAAAAAAAAAAAAA&quot;)
+        item1 = self.tableWidget.item(1, 1)
+        item1.setText(&quot;0xAB&quot;)
+        item2 = self.tableWidget.item(1, 2)
+        item2.setText(self.lineEdit.text())
+        item3 = self.tableWidget.item(1, 3)
+        item3.setText(self.lineEdit_2.text())
+        item4 = self.tableWidget.item(1,4)
+        item4.setText(str(len(self.lineEdit_3.text())))
+        item5 = self.tableWidget.item(1,5)
+        item5.setText(self.lineEdit_3.text())
+        item6 = self.tableWidget.item(1,6)
+        item6.setText(check_code_temp)
+
+
+
+if __name__ == &#39;__main__&#39;:
+    app = QApplication(sys.argv)
+    w = mwindow()
+    w.pushButton.clicked.connect(w.submit)
+    w.show()
+    sys.exit(app.exec_())
+</code></pre>
+<h2 id="crc算法核心代码"><a href="#crc算法核心代码" class="headerlink" title="crc算法核心代码"></a>crc算法核心代码</h2><pre><code class="python"> for i in range(crc_n):
+            info.append(0)
+        # 除
+        q =[]
+        for i in range(times):
+            if info[i] == 1:
+                q.append(1)
+                for j in range(n):
+                    info[j + i] = info[j + i] ^ p[j]
+            else:
+                q.append(0)
+
+        # 余数
+        check_code = info[-crc_n::]
+
+        # 生成编码
+
+        check_code_temp = &#39;&#39;
+        code = info.copy()
+        for i in check_code:
+            code.append(i)
+            check_code_temp += str(i)</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​            首先是收获：通过先使用qt designer软件画出ui界面，然后再写后台代码。通过这个过程了解到了一点ui与后台结合开发中的一些业务逻辑问题。通过实现以太网帧的封装，更加熟悉了帧的结构体系，理解了crc校验运算的整个流程。然后是遇到的问题及解决：整个过程遇到的最大的过程其实是ui与后台结合的业务逻辑问题，类与类之间的继承关系刚开始并不明晰。通过翻查书籍及利用搜索引擎逐步解决问题。</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

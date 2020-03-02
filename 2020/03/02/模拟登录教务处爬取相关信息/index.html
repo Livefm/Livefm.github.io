@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Livefm_blog</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/IEEE802.3以太网帧封/">
+								<i class="fa fa-file"></i>
+								IEEE802.3以太网帧封
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/图的操作和应用之景区信息管理系统/">
+								<i class="fa fa-file"></i>
+								图的操作和应用之景区信息管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于pyhon图形化编程之仓库管理系统/">
+								<i class="fa fa-file"></i>
+								基于pyhon图形化编程之仓库管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于古典密码新密码算法的设计/">
+								<i class="fa fa-file"></i>
+								基于古典密码新密码算法的设计
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file active">
+							<a href="/2020/03/02/模拟登录教务处爬取相关信息/">
+								<i class="fa fa-file"></i>
+								模拟登录教务处爬取相关信息
+							</a>
+						</li>
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+    <li class="menu-item">
+        <a href="https://github.com/Livefm" class="menu-item-link" target="_blank">github</a>
+    </li>
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">Livefm</span>
+	<span id="post-date">2020-03-02 14:25:24</span>
+</div>
+
+<div id="article">
+	<h1 id="python爬虫模拟登录教务处爬取相关信息"><a href="#python爬虫模拟登录教务处爬取相关信息" class="headerlink" title="python爬虫模拟登录教务处爬取相关信息"></a>python爬虫模拟登录教务处爬取相关信息</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>教务处是我们在大学经常要打交道的一个站点，因为这段时间看了一点python关于爬虫的一些知识，想着能不能在我们学校的教务处实践一下。说动手就动手！</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>写爬虫并不是一打开开发软件就直接开撸，爬虫更注重的是前期的分析过程，因为每个网站都有着自己的结构特点，所以写出来的爬虫一定要符合那个网站的结构特点。</p>
+<p>于是我们打开学校的教务处站点</p>
+<p><img src="/2020/03/02/%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95%E6%95%99%E5%8A%A1%E5%A4%84%E7%88%AC%E5%8F%96%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/image-20200302143311133.png" alt="image-20200302143311133"></p>
+<p>这里我们打开审查元素功能</p>
+<p><img src="/2020/03/02/%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95%E6%95%99%E5%8A%A1%E5%A4%84%E7%88%AC%E5%8F%96%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/image-20200302143508757.png" alt="image-20200302143508757"></p>
+<p>发现输入账号密码验证码之后会向<a href="http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logon这个链接通过post方式提交请求，因此我们的登录功能就可以依此来写。" target="_blank" rel="noopener">http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logon这个链接通过post方式提交请求，因此我们的登录功能就可以依此来写。</a></p>
+<p>然后登录之后再进行分析</p>
+<p><img src="/2020/03/02/%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95%E6%95%99%E5%8A%A1%E5%A4%84%E7%88%AC%E5%8F%96%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF/image-20200302143838133.png" alt="image-20200302143838133"></p>
+<p>通过分析，左侧的功能栏对应着学生的各种信息，我们可以通过爬虫来爬取这些信息。</p>
+<h2 id="开撸"><a href="#开撸" class="headerlink" title="开撸"></a>开撸</h2><h3 id="首先是登录"><a href="#首先是登录" class="headerlink" title="首先是登录"></a>首先是登录</h3><pre><code class="python">#验证码获取
+    def getcode(self):
+        codeurl = &quot;http://jwxt.wust.edu.cn/whkjdx/verifycode.servlet&quot;
+        request = urllib.request.Request(codeurl,headers = self.headers)
+        picture = self.opener.open(request).read()
+        local = open(&quot;checkcode.jpg&quot;,&quot;wb&quot;)
+        local.write(picture)
+        local.close()
+        os.system(&quot;checkcode.jpg&quot;)
+        RANDOMCODE = input(&quot;请输入验证码：&quot;)
+        return RANDOMCODE
+#模拟登陆
+    def login(self,USERNAME,PASSWORD):
+        RANDOMCODE = self.getcode()
+        Data = {&quot;USERNAME&quot;:USERNAME,&quot;PASSWORD&quot;:PASSWORD,&quot;RANDOMCODE&quot;:RANDOMCODE}
+        data = parse.urlencode(Data).encode(&#39;utf-8&#39;)
+        request_url = &quot;http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logon&quot;
+        request_new = urllib.request.Request(request_url,headers=self.headers)
+        response = self.opener.open(request_new,data)
+        #self.getScore()
+
+def login1(self,USERNAME,PASSWORD):
+    request_url = &quot;http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logonBysso&quot;
+    request_new = urllib.request.Request(request_url,headers=self.headers)
+    response = self.opener.open(request_new,data)
+    #self.mainjsp()
+    self.getTimetable()</code></pre>
+<p>首先是验证码的处理，笔者只是单纯的将验证码暂时爬取下来，然后用户自己识别输入验证码，个人觉得如果要实现验证码自动输入，可以通过调用别人已经实现验证码识别api或者通过打码平台。</p>
+<p>然后就是登录功能这里有一个坑，之前说的是登录请求连接为：<a href="http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logon，但是请求这个链接后你会发现压根就没法登录，经过折腾" target="_blank" rel="noopener">http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logon，但是请求这个链接后你会发现压根就没法登录，经过折腾</a> 我发现这个教务系统还有一个登录链接：<a href="http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logonBysso，这是强智教务系统的一个bug之处" target="_blank" rel="noopener">http://jwxt.wust.edu.cn/whkjdx/Logon.do?method=logonBysso，这是强智教务系统的一个bug之处</a> 哈哈哈。</p>
+<h3 id="爬取课表信息"><a href="#爬取课表信息" class="headerlink" title="爬取课表信息"></a>爬取课表信息</h3><h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><pre><code class="python">#打印课表信息
+    def getTimetable(self):
+        self.mainjsp()
+        timetable_url = &quot;http://jwxt.wust.edu.cn/whkjdx/tkglAction.do?method=kbxxXs&quot;
+        content = self.getHtml(timetable_url)
+        print(content)</code></pre>
+<p>获取课表信息就是很常规的提交请求就行了。这里我并没有对返回的数据进行处理，直接就是将整个网页的html源码打印出来了，待后期完善。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​            对于本次爬虫的编写，虽然有很多地方没有做到尽善尽美，但是也算是对爬虫有了一个基本的了解。对之后爬虫的进一步学习也算是打了个基础。</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
