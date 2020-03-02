@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Livefm_blog</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/IEEE802.3以太网帧封/">
+								<i class="fa fa-file"></i>
+								IEEE802.3以太网帧封
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								ctf
+							</a>
+							
+					<ul>
+						<li class="file active">
+							<a href="/2020/03/02/ctf/ctf之男人就是要快的解题思路/">
+								<i class="fa fa-file"></i>
+								ctf之男人就是要快的解题思路
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/图的操作和应用之景区信息管理系统/">
+								<i class="fa fa-file"></i>
+								图的操作和应用之景区信息管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于pyhon图形化编程之仓库管理系统/">
+								<i class="fa fa-file"></i>
+								基于pyhon图形化编程之仓库管理系统
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/基于古典密码新密码算法的设计/">
+								<i class="fa fa-file"></i>
+								基于古典密码新密码算法的设计
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="directory">
+							<a href="#" class="directory">
+								<i class="fa fa-folder"></i>
+								安卓逆向
+							</a>
+							
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/安卓逆向/安卓逆向之环境配置/">
+								<i class="fa fa-file"></i>
+								安卓逆向之环境配置
+							</a>
+						</li>
+					</ul>
+	
+						</li>
+						
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/02/模拟登录教务处爬取相关信息/">
+								<i class="fa fa-file"></i>
+								模拟登录教务处爬取相关信息
+							</a>
+						</li>
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+    <li class="menu-item">
+        <a href="https://github.com/Livefm" class="menu-item-link" target="_blank">github</a>
+    </li>
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">Livefm</span>
+	<span id="post-date">2020-03-02 23:13:12</span>
+</div>
+
+<div id="article">
+	<h1 id="ctf之男人就是要快的解题思路"><a href="#ctf之男人就是要快的解题思路" class="headerlink" title="ctf之男人就是要快的解题思路"></a>ctf之男人就是要快的解题思路</h1><h2 id="直接上题"><a href="#直接上题" class="headerlink" title="直接上题"></a>直接上题</h2><p><img src="/2020/03/02/ctf/ctf%E4%B9%8B%E7%94%B7%E4%BA%BA%E5%B0%B1%E6%98%AF%E8%A6%81%E5%BF%AB%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/image-20200302231340793.png" alt="image-20200302231340793"></p>
+<p>哈哈哈 高中毕业的英语水平就能知道此题大致意思：在两秒内提交自己的判断，回答true或者false，连续回答对20道题目，将能够得到flag，而且不能在两秒之内提交答案，然后就是一个非常人2秒能判断正确或错误的等式。恨我年轻时没学点啥速算技巧 哈哈哈</p>
+<h2 id="审题分析"><a href="#审题分析" class="headerlink" title="审题分析"></a>审题分析</h2><p>既然是让我们提交true或者false，不妨试试提交看。首先打开计算器算一下这个等式的对错，经过计算，这个等式是对的。然后我们提交true看看，虽然已经超过了两秒，看看会有什么响应。</p>
+<p><img src="/2020/03/02/ctf/ctf%E4%B9%8B%E7%94%B7%E4%BA%BA%E5%B0%B1%E6%98%AF%E8%A6%81%E5%BF%AB%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/image-20200302231932479.png" alt="image-20200302231932479"></p>
+<p>很明显，太慢了。那有没有什么办法，让我们提交的速度更快一些呢，没错，就是我们的神器burpsuite，其中的代理功能简直不要太好用。让我们试试吧。</p>
+<p>将包拦截下来发送到repeater模块上，更直观的看到发送与响应。</p>
+<p><img src="/2020/03/02/ctf/ctf%E4%B9%8B%E7%94%B7%E4%BA%BA%E5%B0%B1%E6%98%AF%E8%A6%81%E5%BF%AB%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/image-20200302232309067.png" alt="image-20200302232309067"></p>
+<p>我们就可以快速的通过send按钮来发送post请求，只要更改answer的变量值即可。</p>
+<p>我将几种情况列举出来</p>
+<p>1，时间准但是答案错</p>
+<p><img src="/2020/03/02/ctf/ctf%E4%B9%8B%E7%94%B7%E4%BA%BA%E5%B0%B1%E6%98%AF%E8%A6%81%E5%BF%AB%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/image-20200302232503905.png" alt="image-20200302232503905"></p>
+<p>2，时间过快但是答案对</p>
+<p><img src="/2020/03/02/ctf/ctf%E4%B9%8B%E7%94%B7%E4%BA%BA%E5%B0%B1%E6%98%AF%E8%A6%81%E5%BF%AB%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/image-20200302232605419.png" alt="image-20200302232605419"></p>
+<p>3，时间刚好且答案准确</p>
+<p><img src="/2020/03/02/ctf/ctf%E4%B9%8B%E7%94%B7%E4%BA%BA%E5%B0%B1%E6%98%AF%E8%A6%81%E5%BF%AB%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF/image-20200302232646348.png" alt="image-20200302232646348"></p>
+<p>4，时间太慢但答案对</p>
+<p>这种情况第一次就给出截图了，这里就不试了</p>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>​    通过审题分析，不难发现，此题意在考察脚本的编写能力，有两个点得把握，1，时间卡准，2，判断等式是否正确。然后就是脚本的编写，这里我用的python。直接先上代码</p>
+<pre><code class="python">import requests
+from bs4 import BeautifulSoup
+import time
+url = &quot;http://www.cohacker.cn:5010/&quot;
+headers = {
+    &#39;Host&#39;:&#39;www.cohacker.cn:5010&#39;,
+    &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0&#39;,
+    &#39;Accept&#39;: &#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#39;,
+    &#39;Accept-Language&#39;: &#39;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#39;,
+    &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;,
+    &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;,
+    &#39;Content-Length&#39;: &#39;12&#39;,
+    &#39;Origin&#39;: &#39;http://www.cohacker.cn:5010&#39;,
+    &#39;Connection&#39;: &#39;close&#39;,
+    &#39;Referer&#39;: &#39;http://www.cohacker.cn:5010/index.php&#39;,
+    &#39;Cookie&#39;: &#39;PHPSESSID=293522b5si2svacnm0m00odvbv&#39;,
+    &#39;Upgrade-Insecure-Requests&#39;: &#39;1&#39;
+
+    }
+i= 22
+d = {&#39;answer&#39; :&#39;false&#39;}
+while(i):
+    time.sleep(1.5)
+    r = requests.post(url,headers = headers,data=d)
+    bs = BeautifulSoup(r.text,&quot;html.parser&quot;)
+    print(r.text)
+    a = bs.div.text
+    b = []
+    b = a.split(&#39;=&#39;)
+    print(b[0],b[1])
+    if eval(b[0])==eval(b[1]):
+        d[&#39;answer&#39;] = &#39;true&#39;
+    else:
+        d[&#39;answer&#39;] = &#39;false&#39;
+    i-=1
+    print(i)
+
+</code></pre>
+<p>代码解释：</p>
+<p>通过request的模块发送post请求，然后通过beautifulsoup模块对返回的html进行解析，解析成树结构之后，在把等式提取出来，通过等号分成左右两部分，再用eval()函数计算结果进行对比，如果相等就将answer置为true，反之false。当时刚开始，我没有注意到后面还有不能过快的限制，结果一直输出 faster than hk reporter。后来仔细看才发现，所以做题 一定的仔细仔细再仔细，不过这题挺有梗的，比香港记者还要快是什么梗，哈哈哈哈。然后我并引进了time模块，做了一个延时处理，也就是time.sleep(1.5)这一行。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然刷的ctf题只有不到20道，但是希望自己今后的日子能把刷题量提上来！</p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
