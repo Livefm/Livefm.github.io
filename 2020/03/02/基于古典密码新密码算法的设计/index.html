@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Livefm_blog</title>
+	<meta charset="utf-8">
+
+	<!-- 引入配置文件 -->
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	<!-- 字体图片库 -->
+	
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+	<!-- 代码高亮库 -->
+	
+<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+	<div id="main">
+		<!-- 引入侧边栏 -->
+		<aside>
+			<!-- 搜索栏 -->
+<div id="search">
+	<input class="search-input" type="text" placeholder="search">
+	<i id="search-icon" class="fa fa-bars" title="切换目录与索引">
+</div>
+
+<!-- 侧边目录栏 -->
+<div id="tree">
+	
+
+	
+					<ul>
+						<li class="file active">
+							<a href="/2020/03/02/基于古典密码新密码算法的设计/">
+								<i class="fa fa-file"></i>
+								基于古典密码新密码算法的设计
+							</a>
+						</li>
+					</ul>
+	
+</div>
+
+
+<!-- 最尾部添加，这里就不列以前的代码了 -->
+<div id="toc" style="display: none;"></div>
+
+		</aside>
+
+		<!-- 引入导航 -->
+		<nav>
+			<ul id="menu">
+	
+	
+    <li class="menu-item">
+        <a href="/" class="menu-item-link">主页</a>
+    </li>
+    
+    <li class="menu-item">
+        <a href="/about" class="menu-item-link">关于</a>
+    </li>
+    
+
+    
+    
+    <li class="menu-item">
+        <a href="https://github.com/Livefm" class="menu-item-link" target="_blank">github</a>
+    </li>
+    
+
+</ul>
+
+		</nav>
+
+		<!-- 引入正文 -->
+		<div id="content">
+			<div>
+	<span id="post-author">Livefm</span>
+	<span id="post-date">2020-03-02 12:41:12</span>
+</div>
+
+<div id="article">
+	<h1 id="基于古典密码新密码算法的设计"><a href="#基于古典密码新密码算法的设计" class="headerlink" title="基于古典密码新密码算法的设计"></a>基于古典密码新密码算法的设计</h1><h2 id="序章"><a href="#序章" class="headerlink" title="序章"></a>序章</h2><p>​    随着大三上密码学这一门课程结束，对密码学有了个更直观的感受。但是课本上的知识过于理论化，为了更好的消化其中的知识，于是想着自己动手设计一款基于古典密码的新密码算法。并且用编程语言去实现这个算法。</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><h3 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a>main.py</h3><pre><code class="python">import random
+import VigenereEncrypto as v1
+import VigenereDecrypto as v2
+import Substitution_Cipher as s
+import os
+def menu():
+    print(&quot;MENU:&quot;)
+    print(&quot;1,加密&quot;)
+    print(&quot;2,解密&quot;)
+    print(&quot;3,exit&quot;)
+    option = int(input(&quot;请输入功能选项前对应的序号:&quot;))
+    main(option)
+def main(option):
+    if option == 1:
+        plaintext = input(&quot;请输入所要加密的内容：&quot;)
+        print(&quot;加密结果为：&quot;+s.SubstitutionEncryp(plaintext))
+    if option == 2:
+        ciphertext = input(&quot;请输入所要解密的内容：&quot;)
+        print(&quot;解密结果为：&quot;+v2.VegenereDecrypto(ciphertext))
+    if option == 3:
+        os._exit(0)
+    menu()
+
+if __name__ == &#39;__main__&#39;:
+    menu()
+
+</code></pre>
+<h3 id="Substitution-Cipher-py"><a href="#Substitution-Cipher-py" class="headerlink" title="Substitution_Cipher.py"></a>Substitution_Cipher.py</h3><pre><code class="python">import random
+import VigenereEncrypto  as v1
+Substitution_Key = dict(a = &#39;i&#39;,b = &#39;d&#39;,c = &#39;j&#39;,d = &#39;k&#39;,e = &#39;e&#39;,
+                        f = &#39;u&#39;,g = &#39;m&#39;,h = &#39;v&#39;,i = &#39;c&#39;,j = &#39;r&#39;,
+                        k = &#39;l&#39;,l = &#39;f&#39;,m = &#39;s&#39;,n = &#39;t&#39;,o = &#39;b&#39;,
+                        p = &#39;w&#39;,q = &#39;q&#39;,r = &#39;z&#39;,s = &#39;g&#39;,t = &#39;o&#39;
+                        ,u = &#39;p&#39;,v = &#39;h&#39;,w = &#39;a&#39;,x = &#39;y&#39;,y = &#39;n&#39;,z = &#39;x&#39;)
+def SubstitutionEncryp(plaintext):#代换密码加密
+    ciphertext = &quot;&quot;
+    for each in plaintext:
+        ciphertext = ciphertext+(Substitution_Key[each])
+    k1 = random.randint(97,122)
+    k2 = random.randint(97,122)
+    k3 = random.randint(97,122)
+    k4 = random.randint(97,122)
+    secret_key = chr(k1)+chr(k2)+chr(k3)+chr(k4)#随机生成四位维吉尼亚密钥
+    temp = v1.VigenereEncrypto(ciphertext,secret_key)
+    return temp
+def SubstitutionDecryp(ciphertext):#代换密码解密
+    plaintext = &quot;&quot;
+    for each in ciphertext:
+        for (key,value) in Substitution_Key.items():
+            if each == value:
+                plaintext += key
+    return plaintext
+
+</code></pre>
+<h3 id="VigenereDecrypto-py"><a href="#VigenereDecrypto-py" class="headerlink" title="VigenereDecrypto.py"></a>VigenereDecrypto.py</h3><pre><code class="python">import Substitution_Cipher as s
+def VegenereDecrypto(ciphertext):#维吉尼亚密码解密
+    ciphertext_temp = ciphertext[:len(ciphertext)-4]
+    secret_key = ciphertext[len(ciphertext)-4:]
+    plaintext = &quot;&quot;
+    for i in range(len(ciphertext_temp)):
+        j = i%len(secret_key)
+        temp = (ord(ciphertext_temp[i])-ord(secret_key[j]))%26
+        if temp&gt;0:
+            plaintext += str(chr(temp+97))
+        else:
+            plaintext += str(chr(temp+26+97))
+    temp1 = s.SubstitutionDecryp(plaintext)
+    return temp1
+</code></pre>
+<h3 id="VigenereEncrypto-py"><a href="#VigenereEncrypto-py" class="headerlink" title="VigenereEncrypto.py"></a>VigenereEncrypto.py</h3><pre><code class="python">def VigenereEncrypto(plaintext,secret_key):#维吉尼亚密码加密
+    plaintext_len = len(plaintext)
+    key_len = len(secret_key)
+    cipher = &quot;&quot;
+    for i in range(plaintext_len):
+        j = i%key_len
+        cipher += str(chr(((ord(plaintext[i])+ord(secret_key[j])-97*2)%26+97)))
+    return cipher+secret_key
+
+</code></pre>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="加密过程"><a href="#加密过程" class="headerlink" title="加密过程"></a>加密过程</h3><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8E%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E6%96%B0%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1/image-20200302125947635.png" alt="image-20200302125947635"></p>
+<h4 id="相关函数截图"><a href="#相关函数截图" class="headerlink" title="相关函数截图"></a>相关函数截图</h4><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8E%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E6%96%B0%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1/image-20200302130013140.png" alt="image-20200302130013140"></p>
+<p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8E%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E6%96%B0%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1/image-20200302130022778.png" alt="image-20200302130022778"></p>
+<h4 id="加密过程解释："><a href="#加密过程解释：" class="headerlink" title="加密过程解释："></a>加密过程解释：</h4><p><strong>首先将输入的明文用代换密码进行加密，然后再用random模块随机生成四个97到122的整数，将这四个整数用chr()函数转换成四个英文字母构成一个四位的密钥，然后利用生成的随机密钥，将经过代换加密的明文再次用维吉尼亚密码加密。最后输出的密文是密文加上随机密钥的组合。以便解密</strong></p>
+<h3 id="解密过程"><a href="#解密过程" class="headerlink" title="解密过程"></a>解密过程</h3><h4 id="效果图-1"><a href="#效果图-1" class="headerlink" title="效果图"></a>效果图</h4><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8E%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E6%96%B0%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1/image-20200302130036626.png" alt="image-20200302130036626"></p>
+<h4 id="相关函数截图-1"><a href="#相关函数截图-1" class="headerlink" title="相关函数截图"></a>相关函数截图</h4><p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8E%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E6%96%B0%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1/image-20200302130051971.png" alt="image-20200302130051971"></p>
+<p><img src="/2020/03/02/%E5%9F%BA%E4%BA%8E%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E6%96%B0%E5%AF%86%E7%A0%81%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1/image-20200302130058898.png" alt="image-20200302130058898"></p>
+<h4 id="解密过程解释："><a href="#解密过程解释：" class="headerlink" title="解密过程解释："></a>解密过程解释：</h4><p>  <strong>解密就是加密的逆过程，先将密文里面的真正的密文和密钥分开，然后通过维吉尼亚的解密函数得到代换密码的密文，然后将这个密文传到代换密码解密函数，得到真正的明文。</strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>整个密码体系只是利用到了古典密码算法里面代换和维吉尼亚两种思想，但是通过将两者有机结合，使得加解密变得复杂一下，再加上密钥是通过随机数生成函数random生成，让密钥不是一成不变。但是整套体系其实也有不足，如：如果有第三方知道了密钥就隐藏在明文中，整个加密过程就变得完全透明不安全。这也是后期需要改进的地方。</strong></p>
+
+</div>
+
+		</div>
+		
+	</div>
+
+	<!-- 引入代码高亮的 js -->
+	
+<script src="/lib/highlight/highlight.pack.js"></script>
+
+
+	<!-- 引入 jquery -->
+	
+<script src="/lib/jquery-3.4.1.min.js"></script>
+
+
+	<!-- 引入 pjax -->
+	
+<script src="/lib/jquery.pjax.js"></script>
+
+	
+	<!-- 引入 js 文件 -->
+	
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
