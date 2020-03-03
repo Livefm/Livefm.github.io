@@ -61,6 +61,15 @@
 						</li>
 					</ul>
 	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/03/ctf/初识安卓应用/">
+								<i class="fa fa-file"></i>
+								初识安卓应用
+							</a>
+						</li>
+					</ul>
+	
 						</li>
 						
 					</ul>
@@ -101,9 +110,45 @@
 							
 					<ul>
 						<li class="file active">
-							<a href="/2020/03/02/安卓逆向/安卓逆向之环境配置/">
+							<a href="/2020/03/02/安卓逆向/一，安卓逆向之环境配置/">
 								<i class="fa fa-file"></i>
-								安卓逆向之环境配置
+								一，安卓逆向之环境配置
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/03/安卓逆向/三，初识安卓应用之Android Studio项目结构/">
+								<i class="fa fa-file"></i>
+								三，初识安卓应用之Android Studio项目结构
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/03/安卓逆向/二，AndroidStudio安装过程中遇到的问题/">
+								<i class="fa fa-file"></i>
+								二，AndroidStudio安装过程中遇到的问题
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/03/安卓逆向/五，初识apk、Dalvik字节码以及Smail/">
+								<i class="fa fa-file"></i>
+								五，初识apk、Dalvik字节码以及Smail
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/03/安卓逆向/四，Android应用程序的结构和解析/">
+								<i class="fa fa-file"></i>
+								四，Android应用程序的结构和解析
 							</a>
 						</li>
 					</ul>
@@ -169,17 +214,17 @@
 <p>链接：<a href="https://down.52pojie.cn/Tools/Android_Tools/" target="_blank" rel="noopener">https://down.52pojie.cn/Tools/Android_Tools/</a></p>
 <h2 id="安装java环境"><a href="#安装java环境" class="headerlink" title="安装java环境"></a>安装java环境</h2><p>​    本人系统是win10，之前上java这门课的时候装过java的环境，但是jeb这款软件比较吃jdk版本，所以这里就存在一个原有java存留的问题？都说遇到问题上百度，但是我偏不，我选择Google，哈哈哈哈。皮一下。通过别人的贴子，了解到，java是可以多版本共存的。这就好办了。java的安装很无脑，一直下一步就完事了。安装完成后，就是大部分同学都踩过的坑了—环境变量的配置。但是我系统现在有两个java版本，怎么去配置呢。这里我看的教程链接是：<a href="https://www.cnblogs.com/jianyungsun/p/6918024.html" target="_blank" rel="noopener">https://www.cnblogs.com/jianyungsun/p/6918024.html</a></p>
 <p>下图是我的环境配置截图：</p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210242418.png" alt="image-20200302210242418"></p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210412463.png" alt="image-20200302210412463"></p>
+<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210242418.png" alt="image-20200302210242418"></p>
+<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210412463.png" alt="image-20200302210412463"></p>
 <p>解释：将之前单个的JAVA_HOME变量改成JAVA8_HOME和JAVA10_HOME两个变量进行区分，然后通过更改path变量中方框标出来的两处来进行两个版本之间的转换。</p>
 <p>然后打开cmd，通过命令行javac java -version 等命令测试是否成功。</p>
 <h2 id="安装jeb"><a href="#安装jeb" class="headerlink" title="安装jeb"></a>安装jeb</h2><p>​    通过那个链接下载的jeb版本直接打开就可以使用</p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210811254.png" alt="image-20200302210811254"></p>
+<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210811254.png" alt="image-20200302210811254"></p>
 <p>三个不同的脚本文件对应着不同系统的启动方式，很明显，windows系统选择第三个</p>
 <p>用记事本打开看看</p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302211011448.png" alt="image-20200302211011448"></p>
+<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302211011448.png" alt="image-20200302211011448"></p>
 <p>注释都写得很清楚 包含了一个大致的启动流程</p>
-<h2 id="环境试运行"><a href="#环境试运行" class="headerlink" title="环境试运行"></a>环境试运行</h2><p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302211603348.png" alt="image-20200302211603348"></p>
+<h2 id="环境试运行"><a href="#环境试运行" class="headerlink" title="环境试运行"></a>环境试运行</h2><p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302211603348.png" alt="image-20200302211603348"></p>
 <p>日志栏有一个检查更新出错的提示。</p>
 <p>个人猜测：因为破解一般都是针对特定版本的，所以这里检查更新出错了，应该是大佬破坏了该软件升级模块。应该不会是因为被墙连不上服务器，毕竟我配置了科学上网。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    虽然这个寒假学了一段时间web安全，但是我觉得目前我现在并不能完全局限于web安全，多拓宽，多延申，哈哈哈 毕竟还算年前！希望自己以后能做的更好！</p>
