@@ -110,6 +110,15 @@
 							
 					<ul>
 						<li class="file">
+							<a href="/2020/03/03/安卓逆向/AndroidStudio安装过程中遇到的问题/">
+								<i class="fa fa-file"></i>
+								AndroidStudio安装过程中遇到的问题
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
 							<a href="/2020/03/02/安卓逆向/一，安卓逆向之环境配置/">
 								<i class="fa fa-file"></i>
 								一，安卓逆向之环境配置
@@ -140,6 +149,15 @@
 							<a href="/2020/03/03/安卓逆向/五，初识apk、Dalvik字节码以及Smail/">
 								<i class="fa fa-file"></i>
 								五，初识apk、Dalvik字节码以及Smail
+							</a>
+						</li>
+					</ul>
+	
+					<ul>
+						<li class="file">
+							<a href="/2020/03/03/安卓逆向/六，jeb简易分析实例/">
+								<i class="fa fa-file"></i>
+								六，jeb简易分析实例
 							</a>
 						</li>
 					</ul>
@@ -207,7 +225,29 @@
 </div>
 
 <div id="article">
-	
+	<h1 id="二，AndroidStudio安装过程中遇到的问题总结"><a href="#二，AndroidStudio安装过程中遇到的问题总结" class="headerlink" title="二，AndroidStudio安装过程中遇到的问题总结"></a>二，AndroidStudio安装过程中遇到的问题总结</h1><p><img src="/2020/03/03/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%BA%8C%EF%BC%8CAndroidStudio%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/1-1583246906165.jpeg" alt="1"></p>
+<p>环境变量设置的问题</p>
+<p>参考链接：<a href="https://www.cnblogs.com/ssrs-wanghao/articles/8994856.html" target="_blank" rel="noopener">https://www.cnblogs.com/ssrs-wanghao/articles/8994856.html</a></p>
+<p>通过学习这篇博客，我竟然发现jre原来是有两份的。</p>
+<p>一下是原文的描述</p>
+<blockquote>
+<p>安装后会有两个jre，一个jdk内部的，和jdk外部的</p>
+<p>关于两套jre的解释</p>
+<p>一个jre文件在JDK的外部，一个jre文件在JDK内部，这就是所谓的专用JRE和公用JRE</p>
+<ul>
+<li><ul>
+<li>专用 JRE<br>安装 JDK 时，会安装一个专用 JRE，并且您可以选择安装一个公共副本。需要专用 JRE 才能运行 JDK 中包含的工具。专用 JRE 没有注册表设置，并且完全包含在仅对 JDK 已知的 Java 目录位置（通常位于 C:\Program Files\Java\jdk1.8.0_162\jre）中。</li>
+<li>公共 JRE<br>可由其他 Java 应用程序使用，并且包含在 JDK 外部（通常位于C:\Program Files\Java\jre1.8.0_162）。公共 JRE 会注册到 Windows 注册表（位于 HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft）中。公共 JRE 可以使用“添加/删除程序”进行删除，并且还会注册到浏览器。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>针对上述问题的解决方案：</p>
+<p><img src="/2020/03/03/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%BA%8C%EF%BC%8CAndroidStudio%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20200303225203446.png" alt="image-20200303225203446"></p>
+<p>将JAVA_HOME变量设置成如图所示</p>
+<p>然后打开path环境变量打开</p>
+<p><img src="/2020/03/03/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%BA%8C%EF%BC%8CAndroidStudio%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/image-20200303225312608.png" alt="image-20200303225312608"></p>
+
 </div>
 
 		</div>
