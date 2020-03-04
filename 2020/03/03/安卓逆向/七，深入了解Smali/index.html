@@ -109,7 +109,7 @@
 							</a>
 							
 					<ul>
-						<li class="file active">
+						<li class="file">
 							<a href="/2020/03/02/安卓逆向/一，安卓逆向之环境配置/">
 								<i class="fa fa-file"></i>
 								一，安卓逆向之环境配置
@@ -118,7 +118,7 @@
 					</ul>
 	
 					<ul>
-						<li class="file">
+						<li class="file active">
 							<a href="/2020/03/03/安卓逆向/七，深入了解Smali/">
 								<i class="fa fa-file"></i>
 								七，深入了解Smali
@@ -221,31 +221,63 @@
 		<div id="content">
 			<div>
 	<span id="post-author">Livefm</span>
-	<span id="post-date">2020-03-02 20:48:24</span>
+	<span id="post-date">2020-03-03 23:06:17</span>
 </div>
 
 <div id="article">
-	<h1 id="安卓逆向之环境配置"><a href="#安卓逆向之环境配置" class="headerlink" title="安卓逆向之环境配置"></a>安卓逆向之环境配置</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    所谓工欲善其事，必先利其器。要想学会一门技术，首先就是学习如何使用工具。所以在正式学习安卓逆向之前，就得先配置好一个最基本的环境。</p>
-<h2 id="所需要的工具"><a href="#所需要的工具" class="headerlink" title="所需要的工具"></a>所需要的工具</h2><p>1，jdk1.8.0_121</p>
-<p>链接：<a href="https://pan.baidu.com/s/17V829Cj8PJxeCDmbdZ45gg" target="_blank" rel="noopener">https://pan.baidu.com/s/17V829Cj8PJxeCDmbdZ45gg</a></p>
-<p>2，jeb破解版（当然你想支持版权也可以去官网下载正式版）</p>
-<p>链接：<a href="https://down.52pojie.cn/Tools/Android_Tools/" target="_blank" rel="noopener">https://down.52pojie.cn/Tools/Android_Tools/</a></p>
-<h2 id="安装java环境"><a href="#安装java环境" class="headerlink" title="安装java环境"></a>安装java环境</h2><p>​    本人系统是win10，之前上java这门课的时候装过java的环境，但是jeb这款软件比较吃jdk版本，所以这里就存在一个原有java存留的问题？都说遇到问题上百度，但是我偏不，我选择Google，哈哈哈哈。皮一下。通过别人的贴子，了解到，java是可以多版本共存的。这就好办了。java的安装很无脑，一直下一步就完事了。安装完成后，就是大部分同学都踩过的坑了—环境变量的配置。但是我系统现在有两个java版本，怎么去配置呢。这里我看的教程链接是：<a href="https://www.cnblogs.com/jianyungsun/p/6918024.html" target="_blank" rel="noopener">https://www.cnblogs.com/jianyungsun/p/6918024.html</a></p>
-<p>下图是我的环境配置截图：</p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210242418.png" alt="image-20200302210242418"></p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210412463.png" alt="image-20200302210412463"></p>
-<p>解释：将之前单个的JAVA_HOME变量改成JAVA8_HOME和JAVA10_HOME两个变量进行区分，然后通过更改path变量中方框标出来的两处来进行两个版本之间的转换。</p>
-<p>然后打开cmd，通过命令行javac java -version 等命令测试是否成功。</p>
-<h2 id="安装jeb"><a href="#安装jeb" class="headerlink" title="安装jeb"></a>安装jeb</h2><p>​    通过那个链接下载的jeb版本直接打开就可以使用</p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302210811254.png" alt="image-20200302210811254"></p>
-<p>三个不同的脚本文件对应着不同系统的启动方式，很明显，windows系统选择第三个</p>
-<p>用记事本打开看看</p>
-<p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302211011448.png" alt="image-20200302211011448"></p>
-<p>注释都写得很清楚 包含了一个大致的启动流程</p>
-<h2 id="环境试运行"><a href="#环境试运行" class="headerlink" title="环境试运行"></a>环境试运行</h2><p><img src="/2020/03/02/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91/%E4%B8%80%EF%BC%8C%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E4%B9%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/image-20200302211603348.png" alt="image-20200302211603348"></p>
-<p>日志栏有一个检查更新出错的提示。</p>
-<p>个人猜测：因为破解一般都是针对特定版本的，所以这里检查更新出错了，应该是大佬破坏了该软件升级模块。应该不会是因为被墙连不上服务器，毕竟我配置了科学上网。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    虽然这个寒假学了一段时间web安全，但是我觉得目前我现在并不能完全局限于web安全，多拓宽，多延申，哈哈哈 毕竟还算年前！希望自己以后能做的更好！</p>
+	<h1 id="七，深入了解Smali"><a href="#七，深入了解Smali" class="headerlink" title="七，深入了解Smali"></a>七，深入了解Smali</h1><h2 id="Smali中的包信息"><a href="#Smali中的包信息" class="headerlink" title="Smali中的包信息"></a>Smali中的包信息</h2><ul>
+<li>.class public Lcom/aaaaa ;     它是com.aaaaa这个packge下的一个类</li>
+<li>.super Lcom/bbbbb;    继承自com.bbbbb这个类</li>
+<li>.source “ccccc.java”  它是一个由ccccc.java编译得到的smali文件</li>
+</ul>
+<h2 id="Smali中的声明"><a href="#Smali中的声明" class="headerlink" title="Smali中的声明"></a>Smali中的声明</h2><p>一般来说在Smali文件中是如下格式：</p>
+<pre><code class="java">#annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+value = {
+Lcom/aaa$qqq;,
+Lcom/aaa$www;
+}
+.end annnotation</code></pre>
+<p>这个声明式内部类的声明：aaa这个类有两个成员内部类qqq和www。memberclasses就是成员类的意思</p>
+<h2 id="关于寄存器的知识补充"><a href="#关于寄存器的知识补充" class="headerlink" title="关于寄存器的知识补充"></a>关于寄存器的知识补充</h2><p>​        在smali里的所有操作都必须经过寄存器来进行：本地寄存器用v开头数字结尾的符号表示，如v0    参数寄存器则使用p开头数字结尾的符号来表示，如p0   特别注意的是，p0不一定式函数中的第一个参数，在非static函数中，p0代指this指针，p1表示函数的第一个参数，，而在static函数中p0才对应第一个参数（因为在java的static方法中没有this方法）</p>
+<h2 id="寄存器简单实例分析"><a href="#寄存器简单实例分析" class="headerlink" title="寄存器简单实例分析"></a>寄存器简单实例分析</h2><p>​        const/4 v0,0x1</p>
+<p>​        iput-boolean v0,p0,Lcom/aaa;-&gt;IsRegistered:Z</p>
+<p>​    对这两段smali代码进行分析：首先它使用了v0本地寄存器，并把值0x1存到v0中，然后第二局用iput-boolean这个指令把v0中的值存放到com.aaa.IsRegistered这个成员变量中。</p>
+<p>​        即相当于：this.IsRegistered=true;</p>
+<h2 id="smali中的成员变量"><a href="#smali中的成员变量" class="headerlink" title="smali中的成员变量"></a>smali中的成员变量</h2><ul>
+<li>成员变量格式：.field public/private [static] [final] varName:&lt;类型&gt;</li>
+<li>对于不同的成员变量也有不同的指令</li>
+<li>一般来说，获取的指令有：iget，sget，iget-boolean，sget-boolean,iget-object,sget-object等</li>
+<li>操作的指令有：iput，sput，iput-boolean,sput-boolean,iput-object,sput-object等（get与put的区别）</li>
+<li>带object操作的是对象类型</li>
+</ul>
+<h2 id="Smali成员变量指令解析"><a href="#Smali成员变量指令解析" class="headerlink" title="Smali成员变量指令解析"></a>Smali成员变量指令解析</h2><ul>
+<li><p>sget-object v0,Lcom/aaa;-&gt;ID:Ljava/lang/String;</p>
+</li>
+<li><p>sget-object就是用来获取变量值并保存到紧接着的参数的寄存器中，本例中，获取ID这个string类型的成员变量并放到v0这个寄存器中</p>
+</li>
+<li><p>注意：前面需要该变量所属的类的类型，后面需要加一个冒号和该成员变量的类型，中间式-&gt;表示所属关系</p>
+</li>
+<li><p>iget-object v0 ,p0,Lcom/aaa;-&gt;view:Lcom/aaa/view;</p>
+</li>
+<li><p>可以看到iget-object指令比sget-object多了一个参数，就是该变量所在类的实例，在这里就是p0即this</p>
+</li>
+<li><p>获取数组array的话我们用aget和aget-object</p>
+</li>
+<li><p>put指令的使用和get指令的统一的如下：</p>
+<ul>
+<li>const/4 v3,0x0</li>
+<li>sput-object v3,Lcom/aaa;-&gt;timer:Lcom/aaa/timer;</li>
+<li>相当于：this.timer=null;</li>
+<li>这里因为是赋值object所以是null</li>
+</ul>
+</li>
+<li><pre><code>.local v0,args:Landroid/os/Message;
+const/4 v1,0x12
+iput v1,v0,Landroid/os/Message;-&gt;what:l</code></pre></li>
+<li><p>相当于：args.what=18;(args是Message的实例)</p>
+</li>
+</ul>
 
 </div>
 
