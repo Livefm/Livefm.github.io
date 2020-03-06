@@ -62,7 +62,7 @@
 					</ul>
 	
 					<ul>
-						<li class="file active">
+						<li class="file">
 							<a href="/2020/03/03/ctf/初识安卓应用/">
 								<i class="fa fa-file"></i>
 								初识安卓应用
@@ -163,7 +163,7 @@
 					</ul>
 	
 					<ul>
-						<li class="file">
+						<li class="file active">
 							<a href="/2020/03/06/安卓逆向/八，Smali函数分析/">
 								<i class="fa fa-file"></i>
 								八，Smali函数分析
@@ -239,12 +239,84 @@
 		<div id="content">
 			<div>
 	<span id="post-author">Livefm</span>
-	<span id="post-date">2020-03-03 13:44:51</span>
+	<span id="post-date">2020-03-06 08:29:41</span>
 </div>
 
 <div id="article">
-	<h1 id="初识安卓应用"><a href="#初识安卓应用" class="headerlink" title="初识安卓应用"></a>初识安卓应用</h1><h2 id="结构概览图"><a href="#结构概览图" class="headerlink" title="结构概览图"></a>结构概览图</h2><p><img src="/2020/03/03/ctf/%E5%88%9D%E8%AF%86%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8/C:\Users\Shinelon\AppData\Roaming\Typora\typora-user-images\image-20200303134439714.png" alt="image-20200303134439714"></p>
-
+	<h1 id="八，Smali函数分析"><a href="#八，Smali函数分析" class="headerlink" title="八，Smali函数分析"></a>八，Smali函数分析</h1><h2 id="Smali中函数的调用"><a href="#Smali中函数的调用" class="headerlink" title="Smali中函数的调用"></a>Smali中函数的调用</h2><ul>
+<li><p>smali中的函数和成员变量一样也分为两种类型，分别为direct和virtual之分</p>
+</li>
+<li><p>那么direct method和virtual method有什么区别</p>
+<ul>
+<li>简单来说，direct method就是private函数，其余的public和protected函数都属于virtual method。所以在调用函数时，有invoke-direct，invoke-virtual，另外还有invoke-static，invoke-super以及invoke-interface等几种不同的指令</li>
+<li>当然其实还有invoke-XXX/range指令的，这是参数多余4个的时候调用的指令，比较少见</li>
+</ul>
+</li>
+<li><p>invoke-static：用于调用static函数的</p>
+<ul>
+<li>例如：invoke-static{},Lcom/aaa;-&gt;CheckSignature()Z</li>
+<li>这里注意到invoke-static后面有一对大括号{}，其实是调用该方法的实例+参数列表，由于这个方法既不需要参数也是static的，所以{}内为空</li>
+<li>const-string v0,”NDKLIB”<br>invoke-static {v0},Ljava/lang/System;-&gt;loadLibrary(Ljava/lang/String;)V</li>
+<li>这个是调用static void System.loadLibrary(String)来加载NDK编译so库用的方法，同样也是这里v0就是参数”NDKLIB“</li>
+</ul>
+</li>
+<li><p>invoke-super:调用父类方法用的指令，一般用于调用onCreate、onDestory等方法</p>
+</li>
+<li><p>invoke-direct:调用private函数</p>
+<ul>
+<li><pre><code>invoke-direct {p0},Landroid/app/TabActivity;-&gt;&lt;init&gt;()V</code></pre></li>
+<li><p>这里init()就是定义在TabActivity中的一个private函数</p>
+</li>
+</ul>
+</li>
+<li><p>invoke-virtual：用于调用protected或public函数，同样注意修改smali时不要错过invoke-direct或invoke-static</p>
+<ul>
+<li><pre><code>sget-object v0,Lcom/dddd;-&gt;bbb:Lcom/ccc;
+invoke-virtual {v0,v1},Lcom/ccc;-&gt;Messages(Ljava/lang/Object;)V</code></pre></li>
+</ul>
+</li>
+<li><p>invoke-XXX/range:当方法的参数多于5个时（含5个），不能直接使用以上的指令，而是在后面加上”/range“,range表示范围，使用方法也有所不同：</p>
+<ul>
+<li><pre><code>invoke-direct/range{v0..v5},Lcmb/pb/ui/PBContainerActivity;-&gt;h(ILjava/lang/CharSequence;Ljava/lang/String;Landroid/content/Intent;I)Z</code></pre></li>
+<li><p>需要传递v0到v5一共6个参数，这时候大括号内的参数采用省略形式，且需要连续</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Smali中函数返回的结果的操作"><a href="#Smali中函数返回的结果的操作" class="headerlink" title="Smali中函数返回的结果的操作"></a>Smali中函数返回的结果的操作</h2><ul>
+<li><p>在java代码中调用函数和返回函数结果可以用一条语句完成，而在Smali里则需要分开来完成，在使用上述指令后，如果调用的函数返回非void，那么还需要用到move-result（返回基本数据类型）和move-result-object（返回对象）指令：</p>
+<ul>
+<li><pre><code>const-string v0,&quot;Eric&quot;
+invoke-static {v0},Lcmb/pbi;-&gt;t(Ljava/lang/String;)Ljava/lang/String;
+move-result-object v2</code></pre></li>
+<li><p>v2保存的就是调用t方法返回的String字符串</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Smali中函数实体分析-if函数分析"><a href="#Smali中函数实体分析-if函数分析" class="headerlink" title="Smali中函数实体分析-if函数分析"></a>Smali中函数实体分析-if函数分析</h2><pre><code>.method private ifRegistered()Z
+.locals 2 //在这个函数中本地寄存器的个数
+.prologue
+const/4 v0,0x1 //v0赋值为1
+.local v0,tempFlag:Z
+if-eqz v0 :cond_0  //判断v0是否等于0，等于0则跳到cond_0执行
+const/4 v1,0x1 //符合条件分支
+:goto_0  //标签
+return v1  //返回v1的值
+:cond_0  //标签
+const/4 v1,0x0  //cond_0分支
+goto :goto_0 //跳到goto_0执行即返回v1的值 这里可以改成return v1也是一样的
+.end method</code></pre><h2 id="Smali中函数实体分析–for函数分析"><a href="#Smali中函数实体分析–for函数分析" class="headerlink" title="Smali中函数实体分析–for函数分析"></a>Smali中函数实体分析–for函数分析</h2><pre><code>const/4 v0,0x0 //v0=0
+.local v0,i:I
+:goto_0
+if-It v0,v3,:cond_0 //v0小于跳转到cond_0并执行分支:cond_0
+return-void
+:cond_0  //标签
+iget-object v1,p0,Lcom/aaa/MainActivity;-&gt;listString:Ljava/util/List //引用对象
+const-string v2,&quot;Eric&quot;
+invoke-interface{v1,v2},Ljava/util/List;-&gt;add(Ljava/lang/Object;)Z  //List是接口，执行接口方法add
+add-int/lit8 v0,v0,0x1 //将第二个v0寄存器中的值，加上0x1的值放入第一个寄存器中，实现自增长
+goto :goto_0  //回去：goto_0标签</code></pre>
 </div>
 
 		</div>
